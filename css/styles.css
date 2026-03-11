@@ -272,7 +272,7 @@ section {
 .about-content {
     display: grid;
     grid-template-columns: 3fr 1fr;
-    gap: 90px;
+    gap: 50px;
     align-items: flex-start;
 }
 
