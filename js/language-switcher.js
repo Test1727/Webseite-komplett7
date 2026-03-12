@@ -1,6 +1,22 @@
 alert('language-switcher.js wurde geladen!');
 console.log('Test');
 
+// GANZ AM ANFANG der Datei:
+alert('1. Datei gestartet');
+
+document.addEventListener('DOMContentLoaded', function() {
+    alert('2. DOM geladen');
+    
+    const languageSwitch = document.getElementById('language-switch');
+    alert('3. languageSwitch gefunden: ' + (languageSwitch !== null));
+    
+    if (languageSwitch) {
+        languageSwitch.addEventListener('change', function() {
+            alert('4. Change-Event ausgelöst! Sprache: ' + this.value);
+        });
+    }
+});
+
 // JavaScript für den Sprachumschalter
 document.addEventListener('DOMContentLoaded', function() {
     // Lade die Übersetzungen
