@@ -16,7 +16,7 @@ const translations = {
     
     // Hero-Sektion
     "hero_title": "IT-Spezialistin & KI-Expertin",
-    "hero_subtitle": "Spezialisiert auf KI-Integration, Prozessoptimierung und Visualisierung",
+    "hero_subtitle": "Innovative Lösungen für eine digitale Zukunft",
     "hero_contact_btn": "Kontakt aufnehmen",
     "hero_projects_btn": "Meine Projekte",
     
