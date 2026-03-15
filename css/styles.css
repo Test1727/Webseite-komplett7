@@ -143,13 +143,19 @@ img {
 }
 
 
-
+/* Sektionsüberschriften mit Hover-Effekt */
 .section-title {
     text-align: center;
     margin-bottom: 3rem;
     font-size: 2.5rem;
     position: relative;
     padding-bottom: 1rem;
+    transition: color 0.3s ease;  /* Sanfter Übergang */
+}
+
+.section-title:hover {
+    color: #00ffff;  /* Türkis wie bei Astrid */
+    cursor: default;  /* Keine Änderung des Cursors */
 }
 
 .section-title::after {
@@ -162,7 +168,15 @@ img {
     height: 4px;
     background-color: var(--accent-color);
     border-radius: 2px;
+    transition: background-color 0.3s ease, width 0.3s ease;  /* Auch für den Strich */
 }
+
+.section-title:hover::after {
+    background-color: #00ffff;  /* Gleiches Türkis */
+    width: 100px;  /* Wird etwas länger beim Hover */
+}
+
+
 
 /* Header */
 header {
