@@ -271,6 +271,17 @@ section {
     margin-top: -40px;
 }
 
+.hero-content {
+    max-width: 600px;
+    position: relative;
+    z-index: 3;
+    margin-top: -40px;  /* Text nach oben */
+}
+
+.hero-buttons {
+    margin-top: 40px;  /* Buttons wieder nach unten */
+}
+
 .hero-content h1 {
     font-size: 3.5rem;
     margin-bottom: 0.5rem;
