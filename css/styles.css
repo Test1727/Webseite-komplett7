@@ -307,7 +307,7 @@ section {
 .hero-brain2 {
     position: absolute;
     top: -100px;
-    right: -50%;  /* Jetzt frei, weil left nicht mehr blockiert */
+    right: -30%; /* Jetzt frei, weil left nicht mehr blockiert */
     width: auto;
     height: 150%;
     transform: rotate(-90deg);
