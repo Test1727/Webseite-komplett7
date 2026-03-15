@@ -463,16 +463,14 @@ section {
     position: absolute;
     left: 0;
     top: 0;
-    width: 200%;
+    width: 100vw;        /* 100% der Viewport-Breite */
     height: 100%;
-    transform: rotate(-90deg) scale(1.2);  /* Drehen + evtl. skalieren */
+    transform: rotate(-90deg);
     object-fit: cover;
     opacity: 0.3;
     z-index: 0;
     pointer-events: none;
 }
-
-
 
 
 
