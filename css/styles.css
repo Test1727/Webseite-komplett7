@@ -482,7 +482,7 @@ section {
 
 
     .hero-brain {
-        height: 250% !important;
+        height: 300% !important;
         top: -80% !important;  /* Mehr nach oben */
         left: -70% !important;
         transform: rotate(-90deg) scale(1.8);  /* Noch größer */
