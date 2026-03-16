@@ -1,11 +1,11 @@
 /* CSS für den Sprachumschalter */
-.header-right {
+#.header-right {
     display: flex;
     align-items: center;
     gap: 15px;
 }
 
-.language-selector {
+#.language-selector {
     position: relative;
     margin-right: 5px;
 }
@@ -33,8 +33,8 @@
     box-shadow: 0 0 0 2px rgba(10, 36, 99, 0.3);
 }
 
-.language-selector::after {
-    content: '▼';
+#.language-selector::after {
+    
     color: var(--primary-color);
     font-size: 0.7rem;
     position: absolute;
@@ -45,7 +45,7 @@
 }
 
 /* Responsive Anpassungen */
-@media (max-width: 768px) {
+#@media (max-width: 768px) {
     .header-right {
         margin-top: 10px;
         justify-content: center;
