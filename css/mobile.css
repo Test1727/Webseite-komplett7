@@ -167,10 +167,6 @@
     
     
     /* === ALLGEMEINE LAYOUTS === */
-    section {
-        padding: 60px 0;
-        scroll-margin-top: 100px;
-    }
     
     .about-content {
         grid-template-columns: 1fr;
