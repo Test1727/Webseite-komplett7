@@ -113,14 +113,14 @@
     
     .header-right .language-selector select,
     .header-right .resume-btn {
-        height: 44px !important;
-        min-height: 44px !important;
-        max-height: 44px !important;
-        line-height: 40px !important;
+        height: 36px !important;
+        min-height: 36px !important;
+        max-height: 36px !important;
+        line-height: 34px !important;
         padding-top: 0 !important;
         padding-bottom: 0 !important;
         margin: 0 !important;
-        font-size: 0.9rem;
+        font-size: 0.8rem;
         box-sizing: border-box !important;
     }
     
