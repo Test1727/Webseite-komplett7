@@ -867,55 +867,61 @@ section {
 }
 
 
-/* Nachrichten-Box */
+
+/* Textbox  */
+
 .futuristic-badge {
-    background: linear-gradient(90deg, #00c6ff, #0072ff);
-    color: white;
+    background: linear-gradient(90deg, #c0a87a, #a58e6b); /* Warme Erdtöne passend zu #f9f5f0 */
+    color: #2c3e50;
     padding: 2px 8px;
     font-size: 0.7rem;
     border-radius: 8px;
     margin-left: 8px;
-    box-shadow: 0 0 8px rgba(0, 198, 255, 0.7);
+    box-shadow: 0 0 8px rgba(165, 142, 107, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 textarea {
     width: 100%;
-    background: # #0a1a2f; /* Dunkelblau (etwas heller als vorher für besseren Kontrast) */
-    border: 1px solid #0a1a2f;
-    color: #e0f7ff;
+    background: #e8e0d5; /* Helle Sandfarbe passend zum Contact-Hintergrund */
+    border: 1px solid #c0b09c; /* Weiche, warme Umrandung */
+    color: #2c3e50; /* Dunkler Text für besseren Kontrast */
     padding: 10px;
     border-radius: 6px;
     outline: none;
+    transition: all 0.3s ease;
 }
 
 textarea:focus {
-    box-shadow: 0 0 10px #00c6ff;0a1a2f
-    border-color: #0a1a2f;
+    box-shadow: 0 0 12px rgba(192, 168, 122, 0.7);
+    border-color: #a58e6b;
+    background: #f0e8dd; /* Etwas heller bei Fokus */
 }
 
 .encryption-status {
     margin-top: 5px;
     font-size: 0.8rem;
-    color: #0077b5; /* LinkedIn-Blau */
+    color: #7f8c8d; /* Gedämpftes Grau-Blau */
     display: flex;
     align-items: center;
     gap: 10px;
-    font-weight: 500;  /* Etwas fetter für bessere Lesbarkeit */
+    font-weight: 500;
 }
 
 .encryption-status .dot {
     width: 8px;
     height: 8px;
-    background:  #0077b5;  /* Gleiches LinkedIn-Blau für den Punkt */
+    background: #b0a090; /* Warmes Grau passend zum Farbschema */
     border-radius: 50%;
     animation: pulse 1s infinite;
-    box-shadow: 0 0 5px #0a1a2f;  /* Passenden Schatten hinzugefügt */
+    box-shadow: 0 0 5px #b0a090;
 }
 
 .faux-percentage {
     margin-left: auto;
-    color: #5e9fd6; /* Auch das Prozent in LinkedIn-Blau */
+    color: #9b8b7a; /* Warmes Braun-Grau */
     opacity: 0.9;
+    font-weight: 600;
 }
 
 @keyframes pulse {
@@ -923,6 +929,9 @@ textarea:focus {
     50% { opacity: 1; transform: scale(1.1); }
     100% { opacity: 0.3; transform: scale(0.9); }
 }
+
+
+
 
 
 
