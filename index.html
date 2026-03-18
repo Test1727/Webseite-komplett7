@@ -1159,36 +1159,27 @@
 
                                     
 
-
 <div class="form-group">
-    <label for="contact-message" style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-        <span>Nachricht</span>
-        <!-- Jetzt mit leuchtenden Farben, die sichtbar sind -->
-        <span style="display: inline-block; background: linear-gradient(90deg, #ff00c6, #ff7200) !important; color: #ffffff !important; padding: 4px 12px !important; font-size: 0.75rem !important; border-radius: 20px !important; box-shadow: 0 0 15px rgba(255,0,200,0.9) !important; border: 2px solid #ffffff !important; font-weight: bold !important; white-space: nowrap !important; opacity: 1 !important; visibility: visible !important; z-index: 9999 !important;">🧠 NEURAL ENCRYPTED</span>
+    <label for="contact-message">
+        Nachricht 
+        <span class="futuristic-badge">🧠 NEURAL ENCRYPTED</span>
     </label>
-    
+
     <textarea id="contact-message" 
               name="message" 
               rows="5" 
               required 
               data-max-words="100"
-              placeholder="Ihre Nachricht wird in Echtzeit neuronal verschlüsselt..." 
-              style="width: 100%; background: #0a0f1f; border: 1px solid #0a3d62; color: #e0f7ff; padding: 10px; border-radius: 6px; outline: none;"></textarea>
-    
-    <div style="margin-top: 5px; font-size: 0.8rem; color: #00ffcc; display: flex; align-items: center; gap: 10px;">
-        <span style="width: 8px; height: 8px; background: #00ffcc; border-radius: 50%; display: inline-block; animation: pulse 1s infinite;"></span>
-        Quantenverschlüsselung aktiv
-        <span style="margin-left: auto; color: #66ccff; font-family: monospace;">128-bit → 256-bit → 512-bit</span>
+              placeholder="Ihre Nachricht wird in Echtzeit neuronal verschlüsselt..."></textarea>
+
+    <div class="encryption-status">
+        <span class="dot"></span> Quantenverschlüsselung aktiv
+        <span class="faux-percentage">128-bit → 256-bit → 512-bit</span>
     </div>
 </div>
 
-<style>
-@keyframes pulse {
-    0% { opacity: 0.3; transform: scale(0.9); }
-    50% { opacity: 1; transform: scale(1.1); }
-    100% { opacity: 0.3; transform: scale(0.9); }
-}
-</style>
+                                    
+
 
 
                                     
