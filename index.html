@@ -1221,15 +1221,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
-
-
 <div class="form-group captcha-container">
     <div class="captcha-question">
-        <p>🧠 Captcha (für Roboter gedacht):</p>
-        <input type="text" id="captcha-answer" name="captcha" readonly value="Psst... wir lassen alle durch 😉">
+        <p data-i18n="form_captcha">Bitte lösen Sie die folgende Aufgabe: 7 + 5 = ?</p>
+        <input type="number" id="captcha-answer" name="captcha" readonly value="12">
+        <small class="captcha-hint">(Psst... wir lassen einfach alle durch)</small>
     </div>
 </div>
+
+
+
                                     
 
                                     
