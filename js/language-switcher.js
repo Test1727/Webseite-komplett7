@@ -16,8 +16,7 @@ const translations = {
         
         // Sprachumschalter
         "language_switch": "Sprache wählen",
-        "language_de": "DE",
-        "language_en": "EN",
+
         
         // Hero-Sektion
         "hero_title": "IT-Spezialistin & KI-Expertin",
@@ -307,8 +306,7 @@ const translations = {
         
         // Sprachumschalter
         "language_switch": "Choose language",
-        "language_de": "DE",
-        "language_en": "EN",
+
         
         // Hero-Sektion
         "hero_title": "IT Specialist & AI Expert",
