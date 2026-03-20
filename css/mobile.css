@@ -1,11 +1,89 @@
 /* Smartphone (bis 768px) */
 @media (max-width: 768px) {
+    
+    /* === HEADER & NAVIGATION - MOBILE OPTIMIERT === */
+    
+    /* Logo ausblenden */
+    .logo {
+        display: none !important;
+    }
+    
+    /* Header kompakter */
+    header {
+        padding: 0.3rem 0 !important;
+        min-height: auto !important;
+    }
+    
+    header .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding-top: 8px !important;
+        padding-bottom: 8px !important;
+        gap: 8px;
+    }
+    
+    /* Navigation - zentriert */
+    nav {
+        width: 100%;
+        order: 1;
+    }
+    
+    nav ul {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin: 0 !important;
+        padding: 0;
+    }
+    
+    nav ul li {
+        margin: 0 !important;
+    }
+    
+    nav ul li a {
+        font-size: 0.85rem !important;
+        padding: 4px 8px !important;
+        white-space: nowrap;
+    }
+    
+    /* Header Right Bereich (Sprache + CV) */
+    .header-right {
+        order: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        margin: 5px auto;
+        width: auto;
+        height: auto;
+    }
+    
+    .language-selector select {
+        height: 32px !important;
+        min-height: 32px !important;
+        font-size: 0.75rem;
+        padding: 4px 25px 4px 12px !important;
+        line-height: 1.2 !important;
+    }
+    
+    .resume-btn {
+        height: 32px !important;
+        min-height: 32px !important;
+        font-size: 0.75rem;
+        padding: 4px 12px !important;
+        line-height: 1.2 !important;
+        display: inline-flex;
+        align-items: center;
+    }
+    
     /* === ALLGEMEINE LAYOUTS === */
 
     section {
-    padding: 60px 0;
-}
-
+        padding: 60px 0;
+    }
 
     /* Hero Section */
     .hero {
@@ -23,7 +101,6 @@
         opacity: 0.3;
     }
 
-    
     .hero .container {
         display: flex;
         flex-direction: column;
@@ -48,18 +125,15 @@
         order: 1;
     }
 
-    
     .hero-content h1 {
         font-size: 2.8rem;
         margin-bottom: 0.5rem;
     }
     
-    
     .hero-content h2 {
         font-size: 1.5rem;
         margin-bottom: 1rem;
     }
-    
     
     .profile-image {
         width: 180px !important;
@@ -81,89 +155,6 @@
         padding: 10px 20px;
         font-size: 1rem;
     }
-    
-
-    
-    /* === HEADER === */
-    header .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        padding-top: 5px !important;
-        padding-bottom: 5px !important;
-    }
-
-    /* Header Right Bereich */
-    .header-right {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        margin: 10px auto;
-        height: auto;
-        width: auto;
-        max-width: 100%;
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-    
-    .header-right .language-selector select,
-    .header-right .resume-btn {
-        height: 32px !important;
-        min-height: 32px !important;
-        max-height: 32px !important;
-        line-height: 30px !important;
-        padding-top: 0 !important;
-        padding-bottom: 0 !important;
-        margin: 0 !important;
-        font-size: 0.8rem;
-        box-sizing: border-box !important;
-    }
-    
-    .header-right .language-selector select {
-        -webkit-appearance: none;
-        appearance: none;
-        padding-right: 30px;
-    }
-    
-    .header-right .resume-btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-    }
-
-    /* Header gesamte Höhe reduzieren */
-    header {
-        padding: 0.2rem 0 !important;
-        min-height: 40px !important;
-    }
-    
-    /* Logo kleiner und weniger Abstand */
-    .logo {
-        font-size: 1.2rem !important;
-        margin: 2px 0 !important;
-        line-height: 1.2 !important;
-    }
-
-   /* Navigation enger zusammen */
-nav ul {
-    margin: 2px 0 !important;
-    gap: 5px !important;
-    flex-wrap: wrap;  /* Wichtig: umbrechen wenn nötig */
-    justify-content: center;
-}
-
-nav ul li {
-    margin: 3px 5px !important;  /* Enger zusammen */
-}
-
-nav ul li a {
-    font-size: 1rem !important;  /* Kleinere Schrift */
-    padding: 2px 5px !important;
-}
-
     
     /* === ALLGEMEINE LAYOUTS === */
     
@@ -191,14 +182,12 @@ nav ul li a {
         left: 0;
     }
 
-    /* Für ALLE Punkte - ungerade und gerade */
-.timeline-item::after,
-.timeline-item:nth-child(even)::after {
-    transform: translateX(-50%);
-    left: 10px !important;
-  }
+    .timeline-item::after,
+    .timeline-item:nth-child(even)::after {
+        transform: translateX(-50%);
+        left: 10px !important;
+    }
      
-    
     .timeline-date {
         position: relative;
         top: auto;
@@ -209,7 +198,6 @@ nav ul li a {
         left: auto !important;
     }
 
-        /* Alle h2 und h3 in der Timeline */
     .timeline-content h2,
     .timeline-content h3 {
         font-size: 1.3rem !important;
@@ -231,35 +219,27 @@ nav ul li a {
         hyphens: auto;
     }
 
-
-
-/* === MEDIA QUERY FÜR 768PX (SMARTPHONE/TABLET) === */
-    
     /* === FILMSTREIFEN ANPASSUNGEN === */
     .projects-carousel {
         padding: 20px 0 20px 0;
     }
     
-    /* WICHTIG: Container für 1 Slide konfigurieren */
     .projects-carousel .carousel-container {
         margin: 0 10px;
         gap: 0;
     }
     
-    /* Jeder Slide nimmt die volle Breite - 1 Slide sichtbar */
     .carousel-slide {
         width: 100% !important;
         flex: 0 0 100% !important;
         min-width: 100% !important;
-        border-right: none !important; /* Border entfernen bei mobile */
+        border-right: none !important;
     }
     
-    /* Optionale: Leichte Trennung zwischen Slides */
     .carousel-slide:not(:last-child) {
         margin-right: 0;
     }
     
-    /* Projekt-Cards Höhe anpassen */
     .project-card-carousel {
         height: 400px;
         min-height: 400px;
@@ -303,7 +283,6 @@ nav ul li a {
         padding: 0.1rem 0.4rem;
     }
     
-    /* Navigation Buttons - kompakter */
     .carousel-button {
         width: 32px;
         height: 32px;
@@ -318,7 +297,6 @@ nav ul li a {
         right: 5px;
     }
     
-    /* Dots kompakter */
     .carousel-dots {
         gap: 8px;
         margin-top: 12px;
@@ -329,27 +307,24 @@ nav ul li a {
         height: 8px;
     }
     
-    /* Filmstreifen-Dekoration für mobile */
     .safety-film-left, 
     .safety-film-right {
-        display: none;  /* Seitliche SAFETY FILM ausblenden */
+        display: none;
     }
     
     .safety-film-center {
-        display: block;  /* Nur mittleren anzeigen */
+        display: block;
         font-size: 8px;
         bottom: 12px;
         opacity: 0.5;
     }
     
-    /* Kodak-Schriftzug verkleinern */
     .projects-carousel .carousel-container::before {
         font-size: 9px;
         top: -12px;
         letter-spacing: 1px;
     }
     
-    /* Perforation anpassen */
     .projects-carousel::before,
     .projects-carousel::after {
         height: 12px;
@@ -362,37 +337,16 @@ nav ul li a {
         );
     }
 
-
-
-
-
-
-
+    /* Anpassungen Kontaktformular */
+    .contact-layout {
+        flex-direction: column;
+    }
     
-
-
-
-
-
-
-
-
-
-
-
-    
-/* Anpassungen Kontaktformular */
-
-          .contact-layout {
-                    flex-direction: column;
-                }
-                
-                .contact-left-column,
-                .contact-right-column {
-                    padding-right: 0;
-                    width: 100%;
-                }
-    
+    .contact-left-column,
+    .contact-right-column {
+        padding-right: 0;
+        width: 100%;
+    }
 
     .encryption-status {
         flex-wrap: wrap;
@@ -403,17 +357,14 @@ nav ul li a {
         width: 100%;
     }
 
-
     .contact-box .contact-content a,
     .contact-content a {
         word-break: break-all !important;
     }
 
-        section[id] {
+    section[id] {
         scroll-margin-top: 120px;
     }
-
-
 }
 
 
