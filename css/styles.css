@@ -399,6 +399,7 @@ section {
    ABOUT SECTION
    ======================================== */
 
+
 .about {
     background: linear-gradient(120deg, #f9f5f0 0%, #f2eae3 100%);
     position: relative;
@@ -1552,6 +1553,14 @@ footer p {
 }
 
 
+
+/* ========================================
+   SCROLL VERHALTEN - FIX
+   ======================================== */
+
+section[id] {
+    scroll-margin-top: 70px;
+}
 
 
 
