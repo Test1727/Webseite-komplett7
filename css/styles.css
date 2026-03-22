@@ -1461,6 +1461,7 @@ label[for="contact-message"] {
     text-align: center;
     margin: 1rem 0;
    width: 100%;
+       max-width: 100%;
 }
 
 
@@ -1472,8 +1473,8 @@ label[for="contact-message"] {
     border-radius: 4px !important;
     font-weight: 500 !important;
     margin-bottom: 10px !important;
-   box-sizing: border-box;
-   width: 100%;
+   box-sizing: border-box !important;
+   width: 100% !important;
 }
 
 .captcha-hint {
@@ -1495,8 +1496,8 @@ label[for="contact-message"] {
     font-weight: 500;
     letter-spacing: 0.5px;
     color: #1a4a7a;
-   width: 100%;
-   box-sizing: border-box;
+   width: 100% !important;
+   box-sizing: border-box !important;
 }
 
 /* ===== MAP SECTION ===== */
