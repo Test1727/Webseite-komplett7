@@ -118,10 +118,13 @@
         text-align: center;
         gap: 40px;
     }
+
+
     
     .hero-content {
         max-width: 100%;
         margin-top: 0;
+       order: 2;
     }
     
     .hero-content h1 {
@@ -150,6 +153,7 @@
     
     .hero-image {
         margin-top: 0;
+        order: 1;
     }
     
     .profile-image {
