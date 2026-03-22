@@ -712,7 +712,7 @@
                                                   rows="5" 
                                                   readonly
                                                   data-max-words="100"
-                                                  data-i18n="form_message_placeholder"
+                                                  data-i18n-placeholder="form_message_placeholder"
                                                   placeholder="Ihre Nachricht wird in Echtzeit neuronal verschlüsselt..."></textarea>
 
                                         <div class="encryption-status">
@@ -724,20 +724,12 @@
 
 
                                 <script>
-// Übersetzung für dieses Feld DEAKTIVIEREN
-document.addEventListener('DOMContentLoaded', function() {
-    const textarea = document.getElementById("contact-message");
-    
-    // Entferne das data-i18n-placeholder Attribut, damit Übersetzung nicht greift
-    if (textarea) {
-        textarea.removeAttribute('data-i18n-placeholder');
-    }
-});
-
-// Ihr Rotations-Script
+                                    // Ihr Rotations-Script (OHNE den DEAKTIVIEREN-Code)
 document.addEventListener('DOMContentLoaded', function() {
     const textarea = document.getElementById("contact-message");
     const languageSwitch = document.getElementById("language-switch");
+
+
     
     if (textarea) {
         let currentLang = document.documentElement.lang || 'de';
