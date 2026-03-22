@@ -1044,26 +1044,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-    <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const textarea = document.getElementById("contact-message");
-    
-    if (textarea) {
-        // Erstelle einen sichtbaren Timer auf der Seite
-        const timerDiv = document.createElement('div');
-        timerDiv.style.cssText = 'position:fixed; bottom:10px; right:10px; background:red; color:white; padding:5px; z-index:9999; font-size:12px;';
-        timerDiv.innerHTML = 'Rotation Test: 0';
-        document.body.appendChild(timerDiv);
-        
-        let counter = 0;
-        setInterval(() => {
-            counter++;
-            timerDiv.innerHTML = 'Rotation Test: ' + counter;
-            textarea.placeholder = "Test " + counter;
-        }, 2000);
-    }
-});
-</script>
+
 
 
 
