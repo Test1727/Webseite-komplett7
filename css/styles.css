@@ -26,9 +26,15 @@
     box-sizing: border-box;
 }
 
-/* Fügen Sie dies am Anfang Ihres CSS ein */
+/* Fügen Sie dies am Anfang Ihres CSS ein 
 html {
     scroll-padding-top: 70px; /* Platz für den fixen Header */
+    scroll-behavior: smooth;
+}*/
+
+/* Neu: Fließender Wert für ALLE Geräte */
+html {
+    scroll-padding-top: clamp(85px, 12vw, 110px);
     scroll-behavior: smooth;
 }
 
