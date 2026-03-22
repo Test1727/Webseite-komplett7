@@ -143,16 +143,27 @@
 
     /* === HEADER & NAVIGATION === */
 
+
+    
+    
+
+
+    /* === HEADER & NAVIGATION === */
+
 .language-selector select,
 .resume-btn {
-    height: 28px !important;      /* Von 32px auf 28px reduziert */
-    font-size: 0.65rem !important; /* Von 0.7rem auf 0.65rem reduziert */
-    padding: 2px 10px !important;  /* Von 4px 12px auf 2px 10px reduziert */
+    height: 24px !important;      /* Von 28px auf 24px reduziert */
+    font-size: 0.6rem !important; /* Von 0.65rem auf 0.6rem reduziert */
+    padding: 0px 8px !important;  /* Von 2px 10px auf 0px 8px reduziert */
+    line-height: 1.2 !important;
 }
 
 .language-selector select {
-    padding-right: 22px !important; /* Angepasst für kleineren Button */
+    padding-right: 20px !important; /* Angepasst für kleineren Button */
 }
+
+
+    
 
 
 
