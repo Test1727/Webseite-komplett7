@@ -1001,36 +1001,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     </script>
 
-    <script>
-(function() {
-    var debugBox = document.createElement('div');
-    debugBox.style.cssText = 'position: fixed; bottom: 10px; right: 10px; background: rgba(0,0,0,0.9); color: #0f0; font-family: monospace; font-size: 11px; padding: 8px 12px; border-radius: 5px; z-index: 9999; pointer-events: none; max-width: 400px; text-align: left; line-height: 1.4;';
-    document.body.appendChild(debugBox);
-    
-    function getActiveCSS() {
-        var heroContainer = document.querySelector('.hero .container');
-        if (!heroContainer) return 'Kein Element gefunden';
-        
-        var styles = window.getComputedStyle(heroContainer);
-        return '📐 Breite: ' + window.innerWidth + 'px\n' +
-               '📱 flex-direction: ' + styles.flexDirection + '\n' +
-               '📱 text-align: ' + styles.textAlign + '\n' +
-               '📱 flex-wrap: ' + styles.flexWrap + '\n' +
-               '📄 Quelle: ' + (window.innerWidth <= 768 ? 'SMARTPHONE' : (window.innerWidth <= 992 ? 'TABLET' : 'DESKTOP'));
-    }
-    
-    function updateDebug() {
-        debugBox.innerHTML = getActiveCSS().replace(/\n/g, '<br>');
-    }
-    
-    window.addEventListener('resize', updateDebug);
-    window.addEventListener('load', updateDebug);
-    updateDebug();
-})();
-</script>
-
-
-
 
 
 
