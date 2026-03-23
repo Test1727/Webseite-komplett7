@@ -220,16 +220,15 @@ const translations = {
         "carousel_slide5_tag3": "50% Schwerpunkt",
         
         // Slide 6: KI-Code-Agent
-        "carousel_slide6_title": "💻 KI-Code-Agent Grundstruktur",
+        "carousel_slide6_title": "💻 KI-Code-Agent",
         "carousel_slide6_subtitle": "Anfang März - Mitte März 2026",
         "carousel_slide6_img_alt": "KI-Code-Agent Visualisierung",
         "carousel_slide6_item1": "Automatisierte Code-Generierung",
         "carousel_slide6_item2": "Verzeichnisstrukturen",
         "carousel_slide6_item3": "Wissensdatenbank",
         "carousel_slide6_item4": "Debugging",
-        "carousel_slide6_tag1": "HF",
-        "carousel_slide6_tag2": "Python",
-        "carousel_slide6_tag3": "80% Schwerpunkt",
+        "carousel_slide6_tag1": "Grundstruktur",
+        "carousel_slide6_tag2": "80% Schwerpunkt",
         
         // Karussell Navigation
         "carousel_prev": "❮",
@@ -507,16 +506,15 @@ const translations = {
         "carousel_slide5_tag3": "50% Focus",
         
         // Slide 6: AI Code Agent
-        "carousel_slide6_title": "💻 AI Code Agent Basic Structure",
+        "carousel_slide6_title": "💻 AI Code Agent",
         "carousel_slide6_subtitle": "Early March - Mid March 2026",
         "carousel_slide6_img_alt": "AI Code Agent Visualization",
         "carousel_slide6_item1": "Automated Code Generation",
         "carousel_slide6_item2": "Directory Structures",
         "carousel_slide6_item3": "Knowledge Database",
         "carousel_slide6_item4": "Debugging",
-        "carousel_slide6_tag1": "HF",
-        "carousel_slide6_tag2": "Python",
-        "carousel_slide6_tag3": "80% Focus",
+        "carousel_slide6_tag1": "Basic Structure",
+        "carousel_slide6_tag2": "80% Focus",
         
         // Karussell Navigation
         "carousel_prev": "❮",
