@@ -201,7 +201,11 @@
     pointer-events: none;
     z-index: 1;
     overflow: hidden;
+}
 
+.glitzer-container div {
+    color: #00ffff !important;
+}
 
 
 
