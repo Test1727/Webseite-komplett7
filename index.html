@@ -1067,6 +1067,31 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 
+    <script>
+    // Hero-Höhe dynamisch anpassen NUR für Tablet-Bereich
+    function setHeroHeight() {
+        const hero = document.querySelector('.hero');
+        if (!hero) return;
+        
+        const width = window.innerWidth;
+        
+        // Nur bei Tablet-Breite (769px - 992px)
+        if (width >= 769 && width <= 992) {
+            const windowHeight = window.innerHeight;
+            hero.style.minHeight = windowHeight + 'px';
+        } else {
+            hero.style.minHeight = ''; // CSS-Wert zurücksetzen
+        }
+    }
+
+    window.addEventListener('resize', setHeroHeight);
+    setHeroHeight();
+    </script>
+
+</body>
+</html>
+
+
 
     
 
