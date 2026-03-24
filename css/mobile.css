@@ -91,10 +91,9 @@
        .hero {
         background-color: #112c4b !important;
         width: 100% !important;
-        height: auto;
-        /*padding: 80px 0 60px;*/
+        /*padding: 80px 0 60px;
     min-height: 100vh;
-    height: auto;
+    height: auto;*/
 }
     
 
