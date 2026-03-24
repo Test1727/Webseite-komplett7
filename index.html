@@ -1068,26 +1068,54 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     /* Damit wird auf Tablet die erste Seite immer korrekt angezeigt */
-    <script>
-    // Hero-Höhe dynamisch anpassen NUR für Tablet-Bereich
-    function setHeroHeight() {
-        const hero = document.querySelector('.hero');
-        if (!hero) return;
+<script>
+function setHeroHeight() {
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
+    
+    const width = window.innerWidth;
+    
+    // Nur bei Tablet-Breite (769px - 992px)
+    if (width >= 769 && width <= 992) {
+        const windowHeight = window.innerHeight;
+        const windowWidth = window.innerWidth;
         
-        const width = window.innerWidth;
+        // Profilbild dynamisch skalieren
+        const profileImage = document.querySelector('.profile-image');
+        if (profileImage) {
+            const newSize = Math.min(220, windowWidth * 0.4);
+            profileImage.style.width = newSize + 'px';
+            profileImage.style.height = newSize + 'px';
+        }
         
-        // Nur bei Tablet-Breite (769px - 992px)
-        if (width >= 769 && width <= 992) {
-            const windowHeight = window.innerHeight;
-            hero.style.minHeight = windowHeight + 'px';
-        } else {
-            hero.style.minHeight = ''; // CSS-Wert zurücksetzen
+        // Hero-Höhe anpassen
+        const heroContent = document.querySelector('.hero-content');
+        const heroImage = document.querySelector('.hero-image');
+        const contentHeight = heroContent ? heroContent.offsetHeight : 0;
+        const imageHeight = heroImage ? heroImage.offsetHeight : 0;
+        const totalContentHeight = contentHeight + imageHeight + 120;
+        
+        hero.style.minHeight = Math.max(windowHeight, totalContentHeight) + 'px';
+    } else {
+        hero.style.minHeight = '';
+        
+        // Bild zurücksetzen auf CSS-Werte
+        const profileImage = document.querySelector('.profile-image');
+        if (profileImage) {
+            profileImage.style.width = '';
+            profileImage.style.height = '';
         }
     }
+}
 
-    window.addEventListener('resize', setHeroHeight);
-    setHeroHeight();
-    </script>
+window.addEventListener('resize', setHeroHeight);
+window.addEventListener('load', setHeroHeight);
+setHeroHeight();
+</script>
+
+
+
+
 
 
 
