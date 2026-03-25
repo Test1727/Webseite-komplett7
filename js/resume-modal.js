@@ -299,7 +299,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Platzhalter nach Zerfall anzeigen mit glitzernden Sternen (nur Cyan, nur ✨)
+    // Platzhalter nach Zerfall anzeigen mit glitzernden Sternen (nur Cyan, nur ✨) - GLITZER AUSKOMMENTIERT ZUM TESTEN
     function showPlaceholder(container) {
         container.innerHTML = '';
         
@@ -320,6 +320,8 @@ document.addEventListener('DOMContentLoaded', function() {
         placeholder.appendChild(content);
         container.appendChild(placeholder);
         
+        // ========== GLITZER EFFEKT AUSKOMMENTIERT ==========
+        /*
         // Glitzer-Effekt (nur ✨ in Cyan)
         const glitzerContainer = document.createElement('div');
         glitzerContainer.className = 'glitzer-container';
@@ -389,6 +391,8 @@ document.addEventListener('DOMContentLoaded', function() {
         modalElement.addEventListener('click', function(e) {
             if (e.target === modalElement) closeModalHandler();
         });
+        */
+        // ========== ENDE AUSKOMMENTIERTER GLITZER ==========
         
         // Download-Button wurde bereits beim Klick ausgeblendet, daher hier nicht nötig
         // Footer bleibt sichtbar
