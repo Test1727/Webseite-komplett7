@@ -154,7 +154,7 @@
 
 
 
-/* Platzhalter Container */
+/* Platzhalter Container wird von JavaScript erzeugt */
 .placeholder-container {
     position: relative;
     min-height: 400px;
