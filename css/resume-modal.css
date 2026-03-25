@@ -202,29 +202,51 @@
 
 
 .lock-icon {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 2.5rem;
+    stroke: #928e8e;
+    fill: #c8c4c4;
+    stroke-width: 1.2;
+}
+
+/*.lock-icon {
     width: 100px;
     height: 100px;
     stroke: #928e8e;
     fill: #c8c4c4;
     stroke-width: 1.2;
        margin-bottom: 5rem;  /* ← größerer Abstand nach unten */
-}
-
+}*/
 
 
 .placeholder-content h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #928e8e;
+}
+
+/*.placeholder-content h3 {
     color: #928e8e;
     margin-bottom: 1rem;
     font-size: 1.5rem;
-}
+}*/
 
 .placeholder-content p {
+    font-size: 1.2rem;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.6;
+    color: #a8a4a4;
+}
+
+/*.placeholder-content p {
     color: #a8a4a4;
     font-size: 1rem;
     max-width: 350px;
     margin: 0 auto;
     line-height: 1.6;
-}
+}*/
 
 /* Glitzer Container */
 .glitzer-container {
