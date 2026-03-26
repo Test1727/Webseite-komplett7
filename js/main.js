@@ -16,26 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Active navigation link highlighting on scroll
-    const sections = document.querySelectorAll("main section");
-    const headerNavLinks = document.querySelectorAll("header nav ul li a");
-
-    function changeLinkState() {
-        let index = sections.length;
-
-        while(--index && window.scrollY + 100 < sections[index].offsetTop) {}
-        
-        headerNavLinks.forEach((link) => link.classList.remove("active"));
-        // Check if a corresponding link exists before trying to add class
-        if (headerNavLinks[index]) {
-            headerNavLinks[index].classList.add("active");
-        }
-    }
-
-    // Initial call to set active link on page load (e.g. if landing on a hash URL)
-    changeLinkState(); 
-    window.addEventListener("scroll", changeLinkState);
-});
 
 document.addEventListener("DOMContentLoaded", () => {
     // ... (previous main.js code for smooth scrolling and active nav) ...
