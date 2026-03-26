@@ -26,16 +26,6 @@
     box-sizing: border-box;
 }
 
-html {
-    height: auto !important;
-    min-height: 0 !important;
-}
-
-
-
-* {
-    outline: 1px solid red;
-}
 
 body {
     font-family: var(--font-secondary);
@@ -1551,18 +1541,6 @@ footer p {
 
 
 
-
-html, body {
-    margin: 0 !important;
-    padding: 0 !important;
-    height: auto !important;
-    min-height: 0 !important;
-}
-
-footer {
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
-}
 
 
 
