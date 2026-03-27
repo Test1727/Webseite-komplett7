@@ -1015,15 +1015,18 @@ window.addEventListener('load', function() {
 
 
 
-
 <!-- Damit wird auf Tablet und Desktop die erste Seite immer korrekt angezeigt egal wie die Fenstergröße ist -->
-    <script>
+<script>
 function setHeroHeight() {
     const hero = document.querySelector('.hero');
     if (!hero) return;
     
     const width = window.innerWidth;
     const windowHeight = window.innerHeight;
+    
+    // Browser-spezifische Anpassung für vh-Berechnung
+    const isVHBuggy = window.innerHeight !== document.documentElement.clientHeight;
+    const adjustedWindowHeight = isVHBuggy ? document.documentElement.clientHeight : windowHeight;
     
     // Tablet-Bereich (769px - 992px)
     if (width >= 769 && width <= 992) {
@@ -1040,11 +1043,15 @@ function setHeroHeight() {
         const heroImage = document.querySelector('.hero-image');
         const contentHeight = heroContent ? heroContent.offsetHeight : 0;
         const imageHeight = heroImage ? heroImage.offsetHeight : 0;
-        const totalContentHeight = contentHeight + imageHeight + 300;
-
-         hero.style.minHeight = Math.max(windowHeight, totalContentHeight) + 'px';
-
         
+        // Puffer je nach Browser anpassen (Chrome/Edge brauchen weniger)
+        let buffer = 100;
+        if (isVHBuggy) {
+            buffer = 80; // Für Chrome, Edge
+        }
+        const totalContentHeight = contentHeight + imageHeight + buffer;
+        
+        hero.style.minHeight = Math.max(adjustedWindowHeight, totalContentHeight) + 'px';
     }
     // Desktop-Bereich (ab 993px)
     else if (width > 992) {
@@ -1061,9 +1068,15 @@ function setHeroHeight() {
         const heroImage = document.querySelector('.hero-image');
         const contentHeight = heroContent ? heroContent.offsetHeight : 0;
         const imageHeight = heroImage ? heroImage.offsetHeight : 0;
-        const totalContentHeight = contentHeight + imageHeight + 300;
         
-        hero.style.minHeight = Math.max(windowHeight, totalContentHeight) + 'px';
+        // Puffer je nach Browser anpassen
+        let buffer = 100;
+        if (isVHBuggy) {
+            buffer = 80;
+        }
+        const totalContentHeight = contentHeight + imageHeight + buffer;
+        
+        hero.style.minHeight = Math.max(adjustedWindowHeight, totalContentHeight) + 'px';
     }
     // Smartphone-Bereich (unter 769px)
     else {
@@ -1078,7 +1091,13 @@ function setHeroHeight() {
     }
 }
 
-window.addEventListener('resize', setHeroHeight);
+// Bei Resize mit Debounce für bessere Performance
+let resizeTimeout;
+window.addEventListener('resize', function() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(setHeroHeight, 150);
+});
+
 window.addEventListener('load', setHeroHeight);
 setHeroHeight();
 </script>
