@@ -711,7 +711,7 @@ section {
 
 .skill-info {
     display: flex;
-    justify-content: space-between;
+    justify-: space-between;
     align-items: center;
     margin-bottom: 8px;
    color: #ffffff;
@@ -719,7 +719,7 @@ section {
 
 .skill-name {
     font-size: 17px;
-    font-weight: 600;
+    font-weight: 500;
     color: #ffffff;
     /*color: #333;*/
 }
