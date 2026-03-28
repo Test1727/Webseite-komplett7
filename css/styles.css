@@ -265,6 +265,13 @@ section {
 /* ========================================
    HERO SECTION - NUR ANIMATIONEN & HOVER
    ======================================== */
+/* Ladezeit */
+.hero {
+    min-height: 100vh;
+    height: auto;
+    display: flex;
+    align-items: center;
+}
 
 @keyframes glowPulse {
     0% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.2); }
