@@ -1,4 +1,4 @@
-// hero.js - optimiert für schnelle Ladezeit
+// hero.js - optimiert für schnelle Ladezeit (ohne visibility/opacity)
 
 // ========== GRUNDLEGENDE HERO-STYLES (nur einmal beim Laden) ==========
 function setHeroBaseStyles() {
@@ -305,9 +305,6 @@ function setHeroResponsiveStyles() {
 window.addEventListener('load', function() {
     setHeroBaseStyles();
     setHeroResponsiveStyles();
-    // Hero nach dem Laden sichtbar machen
-    const hero = document.querySelector('.hero');
-    if (hero) hero.style.visibility = 'visible';
 });
 
 // Optimiertes Resize mit requestAnimationFrame
