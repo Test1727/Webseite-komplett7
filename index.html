@@ -1046,7 +1046,7 @@ function setHeroHeight() {
         hero.style.minHeight = Math.max(adjustedWindowHeight, totalContentHeight) + 'px';
     }
     // Desktop-Bereich (ab 993px)
-    else if (width > 992) {
+    else if (width > 992 && window.innerHeight < window.innerWidth) {
         // Profilbild dynamisch skalieren (Desktop)
         const profileImage = document.querySelector('.profile-image');
         if (profileImage) {
