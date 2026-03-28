@@ -189,7 +189,7 @@ function setHeroResponsiveStyles() {
     // Desktop-Bereich (ab 993px und Querformat)
     else if (width > 992 && window.innerHeight < window.innerWidth) {
         // Desktop spezifisch - basierend auf original CSS
-        hero.style.setProperty('background-color', '#0f2a4a', 'important');
+        hero.style.backgroundColor = '#0f2a4a';
         hero.style.backgroundImage = '';
         hero.style.overflow = 'hidden';
         hero.style.display = 'flex';
