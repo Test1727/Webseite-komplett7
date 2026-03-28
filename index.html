@@ -1008,6 +1008,8 @@ if (width >= 769 && width <= 992 || (width > 992 && window.innerHeight > window.
     hero.style.backgroundColor = 'transparent';
     hero.style.overflow = 'hidden';
     hero.style.backgroundImage = 'none';
+    hero.style.justifyContent = 'center';
+hero.style.alignItems = 'center';
     
     const brainImage = document.querySelector('.hero-brain');
     if (brainImage) {
@@ -1029,6 +1031,13 @@ if (width >= 769 && width <= 992 || (width > 992 && window.innerHeight > window.
         profileImage.style.width = newSize + 'px';
         profileImage.style.height = newSize + 'px';
     }
+
+const heroContainer = document.querySelector('.hero .container');
+if (heroContainer) {
+    heroContainer.style.position = 'relative';
+    heroContainer.style.zIndex = '2';
+}
+
     
     // Schrift skalieren
     const heroTitle = document.querySelector('.hero-content h1');
