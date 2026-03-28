@@ -200,11 +200,12 @@ function setHeroResponsiveStyles() {
         hero.style.height = 'auto';
         hero.style.paddingTop = '0';
         hero.style.marginTop = '0';
+        hero.style.zIndex = '0';
         
         // Container für Desktop - original CSS
         if (heroContainer) {
             heroContainer.style.position = 'relative';
-            heroContainer.style.zIndex = '3';
+            heroContainer.style.zIndex = '2';
             heroContainer.style.display = 'flex';
             heroContainer.style.justifyContent = 'space-between';
             heroContainer.style.flexDirection = 'row';
@@ -230,7 +231,7 @@ function setHeroResponsiveStyles() {
             brainImage.style.height = '150%';
             brainImage.style.transform = 'rotate(-90deg)';
             brainImage.style.objectFit = 'cover';
-            brainImage.style.opacity = '0.3';
+            brainImage.style.opacity = '0.6';
             brainImage.style.zIndex = '1';
             brainImage.style.pointerEvents = 'none';
             brainImage.style.display = 'block';
