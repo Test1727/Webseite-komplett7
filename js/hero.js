@@ -1,5 +1,11 @@
 <!-- Damit wird auf Tablet und Desktop die erste Seite immer korrekt angezeigt egal wie die Fenstergröße ist -->
-<script>
+const testDiv = document.createElement('div');
+testDiv.textContent = 'Hero-Skript läuft';
+testDiv.style.cssText = 'position:fixed; top:0; left:0; background:red; color:white; padding:5px; z-index:9999';
+document.body.appendChild(testDiv);
+setTimeout(() => testDiv.remove(), 3000);
+    
+    <script>
 // ========== GRUNDLEGENDE HERO-STYLES (nur einmal beim Laden) ==========
 function setHeroBaseStyles() {
     const hero = document.querySelector('.hero');
