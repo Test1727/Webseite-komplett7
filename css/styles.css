@@ -265,15 +265,7 @@ section {
 /* ========================================
    HERO SECTION - NUR ANIMATIONEN & HOVER
    ======================================== */
-/* Ladezeit */
-   .hero {
-    min-height: 100vh;
-    height: auto;
-}
 
-.hero-content {
-    border: 5px solid red;
-}
 
 
 @keyframes glowPulse {
