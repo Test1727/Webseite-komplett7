@@ -999,7 +999,7 @@ function setHeroHeight() {
     const isVHBuggy = window.innerHeight !== document.documentElement.clientHeight;
     const adjustedWindowHeight = isVHBuggy ? document.documentElement.clientHeight : windowHeight;
     
-    // Tablet-Bereich (769px - 992px) und alle Geräte mit Breite >992 das Hochformat hat!
+    // alle Tablets (769px - 992px) Hoch- und Querformat und alle Geräte mit Breite >992 im Hochformat-große Tablets!
     if (width >= 769 && width <= 992 || (width > 992 && window.innerHeight > window.innerWidth)) {
         // Blauen Hintergrund entfernen und Gehirn-Bild anpassen
         hero.style.backgroundColor = 'transparent';
