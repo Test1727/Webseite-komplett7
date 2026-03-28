@@ -1,18 +1,3 @@
-@media (min-width: 993px) and (orientation: portrait) {
-    .hero {
-        background-image: url('images/8%20color.svg');
-background-size: contain; /* oder cover */
-background-repeat: no-repeat;
-background-position: center;
-background-color: #0f2a4a; /* blau als Fallback */
-    }
-    
-    .hero-brain {
-        display: none;
-    }
-}
-
-
 
 
 
