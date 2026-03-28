@@ -1000,6 +1000,11 @@ function setHeroHeight() {
     const isVHBuggy = window.innerHeight !== document.documentElement.clientHeight;
     const adjustedWindowHeight = isVHBuggy ? document.documentElement.clientHeight : windowHeight;
 
+
+
+
+    
+
     // alle Tablets (769px - 992px) Hoch- und Querformat und alle Geräte mit Breite >992 im Hochformat-große Tablets!
     if (width >= 769 && width <= 992 || (width > 992 && window.innerHeight > window.innerWidth)) {
         // Hero komplett über JS steuern
@@ -1009,18 +1014,31 @@ function setHeroHeight() {
         hero.style.display = 'flex';
         hero.style.alignItems = 'center';
         hero.style.justifyContent = 'center';
+
+
+
+        // Container relativ zum Gehirn-Bild positionieren
+const heroContainer = document.querySelector('.hero .container');
+if (heroContainer) {
+    heroContainer.style.position = 'relative';
+    heroContainer.style.zIndex = '2';
+    heroContainer.style.display = 'flex';
+    heroContainer.style.flexDirection = 'column';
+    heroContainer.style.alignItems = 'center';
+    heroContainer.style.justifyContent = 'center';
+    heroContainer.style.textAlign = 'center';
+    
+    // Versatz wie im Querformat anpassen
+    heroContainer.style.marginLeft = 'auto';
+    heroContainer.style.marginRight = 'auto';
+    heroContainer.style.width = '90%';
+    heroContainer.style.maxWidth = '600px';
+    
+    // Optional: vertikale Position anpassen
+    heroContainer.style.marginTop = '10%';
+}
         
-        // Container zentrieren
-        const heroContainer = document.querySelector('.hero .container');
-        if (heroContainer) {
-            heroContainer.style.position = 'relative';
-            heroContainer.style.zIndex = '2';
-            heroContainer.style.display = 'flex';
-            heroContainer.style.flexDirection = 'column';
-            heroContainer.style.alignItems = 'center';
-            heroContainer.style.justifyContent = 'center';
-            heroContainer.style.textAlign = 'center';
-        }
+  
 
         // Gehirn-Bild genauso positionieren wie im Querformat
 const brainImage = document.querySelector('.hero-brain');
@@ -1086,6 +1104,16 @@ if (brainImage) {
         
         hero.style.minHeight = Math.max(adjustedWindowHeight, totalContentHeight) + 'px';
     }
+
+
+
+
+
+
+
+
+
+        
     
     // Desktop-Bereich (ab 993px und Querformat)
     else if (width > 992 && window.innerHeight < window.innerWidth) {
