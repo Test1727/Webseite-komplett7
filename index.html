@@ -1004,8 +1004,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-<!-- Damit wird auf Tablet und Desktop die erste Seite immer korrekt angezeigt egal wie die Fenstergröße ist -->
-<script>
+    // Optimierte Hero-Section Höhenanpassung
 function setHeroHeight() {
     const hero = document.querySelector('.hero');
     if (!hero) return;
@@ -1013,70 +1012,18 @@ function setHeroHeight() {
     const width = window.innerWidth;
     const windowHeight = window.innerHeight;
     
-    // Browser-spezifische Anpassung für vh-Berechnung
-    const isVHBuggy = window.innerHeight !== document.documentElement.clientHeight;
-    const adjustedWindowHeight = isVHBuggy ? document.documentElement.clientHeight : windowHeight;
-    
-    // Tablet-Bereich (769px - 992px)
-    if (width >= 769 && width <= 992) {
-        // Profilbild dynamisch skalieren (Tablet)
-        const profileImage = document.querySelector('.profile-image');
-        if (profileImage) {
-            const newSize = Math.min(220, width * 0.4);
-            profileImage.style.width = newSize + 'px';
-            profileImage.style.height = newSize + 'px';
-        }
-        
-        // Hero-Höhe anpassen
-        const heroContent = document.querySelector('.hero-content');
-        const heroImage = document.querySelector('.hero-image');
-        const contentHeight = heroContent ? heroContent.offsetHeight : 0;
-        const imageHeight = heroImage ? heroImage.offsetHeight : 0;
-        
-        // Puffer je nach Browser anpassen (Chrome/Edge brauchen weniger)
-        let buffer = 250;
-        if (isVHBuggy) {
-            buffer = 230; // Für Chrome, Edge
-        }
-        const totalContentHeight = contentHeight + imageHeight + buffer;
-        
-        hero.style.minHeight = Math.max(adjustedWindowHeight, totalContentHeight) + 'px';
-    }
-    // Desktop-Bereich (ab 993px)
-    else if (width > 992) {
-        // Profilbild dynamisch skalieren (Desktop)
-        const profileImage = document.querySelector('.profile-image');
-        if (profileImage) {
-            const newSize = Math.min(300, width * 0.4);
-            profileImage.style.width = newSize + 'px';
-            profileImage.style.height = newSize + 'px';
-        }
-        
-        // Hero-Höhe auch auf Desktop anpassen
-        const heroContent = document.querySelector('.hero-content');
-        const heroImage = document.querySelector('.hero-image');
-        const contentHeight = heroContent ? heroContent.offsetHeight : 0;
-        const imageHeight = heroImage ? heroImage.offsetHeight : 0;
-        
-        // Puffer je nach Browser anpassen
-        let buffer = 100;
-        if (isVHBuggy) {
-            buffer = 80;
-        }
-        const totalContentHeight = contentHeight + imageHeight + buffer;
-        
-        hero.style.minHeight = Math.max(adjustedWindowHeight, totalContentHeight) + 'px';
-    }
-    // Smartphone-Bereich (unter 769px)
-    else {
+    // Für Tablets und Mobilgeräte (unter 1025px) die Höhe automatisch anpassen lassen
+    if (width <= 1024) {
+        // Auf Tablets und Smartphones: Keine feste Höhe erzwingen
         hero.style.minHeight = '';
-        
-        // Bild zurücksetzen auf CSS-Werte
-        const profileImage = document.querySelector('.profile-image');
-        if (profileImage) {
-            profileImage.style.width = '';
-            profileImage.style.height = '';
-        }
+        hero.style.height = 'auto';
+        return;
+    }
+    
+    // Nur auf Desktop (ab 1025px) die Viewport-Höhe setzen
+    if (width >= 1025) {
+        hero.style.minHeight = windowHeight + 'px';
+        hero.style.height = 'auto';
     }
 }
 
@@ -1084,12 +1031,15 @@ function setHeroHeight() {
 let resizeTimeout;
 window.addEventListener('resize', function() {
     clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(setHeroHeight, 150);
+    resizeTimeout = setTimeout(setHeroHeight, 100);
 });
 
+// Bei Seitenladung ausführen
 window.addEventListener('load', setHeroHeight);
 setHeroHeight();
-</script>
+
+
+
 
 
     
