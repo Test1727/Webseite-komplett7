@@ -1013,16 +1013,18 @@ hero.style.alignItems = 'center';
     
     const brainImage = document.querySelector('.hero-brain');
     if (brainImage) {
-        brainImage.style.position = 'absolute';
-        brainImage.style.top = 'auto';
-        brainImage.style.bottom = '0';
-        brainImage.style.left = '-40%';
-        brainImage.style.width = 'auto';
-        brainImage.style.height = '150%';
-        brainImage.style.transform = 'rotate(-90deg)';
-        brainImage.style.objectFit = 'cover';
-        brainImage.style.opacity = '0.3';
-    }
+    brainImage.style.position = 'absolute';
+    brainImage.style.top = '50%';
+    brainImage.style.left = '50%';
+    brainImage.style.transform = 'translate(-50%, -50%) rotate(-90deg)';
+    brainImage.style.width = 'auto';
+    brainImage.style.height = '150%';
+    brainImage.style.objectFit = 'cover';
+    brainImage.style.opacity = '0.3';
+}
+
+
+   
     
     // Profilbild dynamisch skalieren (Tablet)
     const profileImage = document.querySelector('.profile-image');
