@@ -988,7 +988,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
 <!-- Damit wird auf Tablet und Desktop die erste Seite immer korrekt angezeigt egal wie die Fenstergröße ist -->
 <script>
 function setHeroHeight() {
@@ -1001,19 +1000,90 @@ function setHeroHeight() {
     // Browser-spezifische Anpassung für vh-Berechnung
     const isVHBuggy = window.innerHeight !== document.documentElement.clientHeight;
     const adjustedWindowHeight = isVHBuggy ? document.documentElement.clientHeight : windowHeight;
-
+    
+    // ========== GRUNDLEGENDE HERO-STYLES (für alle Geräte) ==========
+    hero.style.minHeight = '100vh';
+    hero.style.height = 'auto';
+    hero.style.display = 'flex';
+    hero.style.alignItems = 'center';
+    hero.style.justifyContent = 'center';
+    hero.style.position = 'relative';
+    hero.style.overflow = 'hidden';
+    hero.style.paddingTop = '0';
+    hero.style.marginTop = '0';
+    
+    // Container Grund-Styles
+    const heroContainer = document.querySelector('.hero .container');
+    if (heroContainer) {
+        heroContainer.style.position = 'relative';
+        heroContainer.style.zIndex = '3';
+        heroContainer.style.display = 'flex';
+        heroContainer.style.justifyContent = 'space-between';
+        heroContainer.style.flexDirection = 'row';
+        heroContainer.style.alignItems = 'center';
+        heroContainer.style.width = '90%';
+        heroContainer.style.maxWidth = '1200px';
+        heroContainer.style.margin = '0 auto';
+    }
+    
+    // Profilbild Grund-Styles
+    const profileImage = document.querySelector('.profile-image');
+    if (profileImage) {
+        profileImage.style.borderRadius = '50%';
+        profileImage.style.objectFit = 'cover';
+        profileImage.style.boxShadow = '0 0 30px rgba(0, 255, 255, 0.3)';
+        profileImage.style.border = '4px solid #00ffff';
+    }
+    
+    // Schrift Grund-Styles
+    const heroTitle = document.querySelector('.hero-content h1');
+    const heroSubtitle = document.querySelector('.hero-content h2');
+    const heroText = document.querySelector('.hero-content p');
+    const heroButtons = document.querySelector('.hero-buttons');
+    
+    if (heroTitle) {
+        heroTitle.style.color = 'white';
+        heroTitle.style.textShadow = '0 0 10px rgba(0, 255, 255, 0.3)';
+        heroTitle.style.marginBottom = '0.5rem';
+    }
+    if (heroSubtitle) {
+        heroSubtitle.style.color = '#00ffff';
+        heroSubtitle.style.textShadow = '0 0 8px rgba(0, 255, 255, 0.5)';
+        heroSubtitle.style.marginBottom = '1.5rem';
+    }
+    if (heroText) {
+        heroText.style.color = '#e0e0e0';
+        heroText.style.marginBottom = '2rem';
+    }
+    if (heroButtons) {
+        heroButtons.style.marginTop = '40px';
+        heroButtons.style.display = 'flex';
+        heroButtons.style.gap = '20px';
+    }
+    
+    // Buttons Grund-Styles
+    const btns = document.querySelectorAll('.hero-buttons .btn');
+    btns.forEach(btn => {
+        btn.style.padding = '12px 30px';
+        btn.style.fontSize = '1.1rem';
+        btn.style.borderRadius = '30px';
+        btn.style.minWidth = '180px';
+        btn.style.textAlign = 'center';
+        btn.style.background = 'transparent';
+        btn.style.color = 'white';
+        btn.style.border = '2px solid #00ffff';
+        btn.style.boxShadow = '0 0 10px rgba(0, 255, 255, 0.3)';
+    });
+    
+    // ========== GERÄTE-SPEZIFISCHE STYLES ==========
+    
     // alle Tablets (769px - 992px) Hoch- und Querformat und alle Geräte mit Breite >992 im Hochformat-große Tablets!
     if (width >= 769 && width <= 992 || (width > 992 && window.innerHeight > window.innerWidth)) {
-        // Hero komplett über JS steuern
+        // Hero spezifisch für Tablet/Hochformat
         hero.style.backgroundColor = 'transparent';
         hero.style.backgroundImage = 'none';
-        hero.style.overflow = 'hidden';
-        hero.style.display = 'flex';
-        hero.style.alignItems = 'flex-start';
-        hero.style.justifyContent = 'flex-start';
         
-        // Container zentrieren
-        const heroContainer = document.querySelector('.hero .container');
+        // Container für Tablet/Hochformat
         if (heroContainer) {
             heroContainer.style.position = 'relative';
             heroContainer.style.zIndex = '2';
@@ -1026,15 +1096,10 @@ function setHeroHeight() {
             heroContainer.style.maxWidth = '600px';
             heroContainer.style.marginLeft = 'auto';
             heroContainer.style.marginRight = 'auto';
-            
-            // Nur setzen, wenn noch nicht gesetzt
-            if (!heroContainer.dataset.positioned) {
-                heroContainer.style.transform = 'translateY(30vh)';
-                heroContainer.dataset.positioned = 'true';
-            }
+            heroContainer.style.transform = 'translateY(10vh)';
         }
 
-        // Gehirn-Bild genauso positionieren wie im Querformat
+        // Gehirn-Bild positionieren
         const brainImage = document.querySelector('.hero-brain');
         if (brainImage) {
             brainImage.style.position = 'absolute';
@@ -1046,10 +1111,10 @@ function setHeroHeight() {
             brainImage.style.objectFit = 'cover';
             brainImage.style.opacity = '0.3';
             brainImage.style.pointerEvents = 'none';
+            brainImage.style.zIndex = '1';
         }
         
         // Profilbild skalieren
-        const profileImage = document.querySelector('.profile-image');
         if (profileImage) {
             const newSize = Math.min(220, width * 0.4);
             profileImage.style.width = newSize + 'px';
@@ -1058,25 +1123,17 @@ function setHeroHeight() {
         }
         
         // Schrift skalieren und zentrieren
-        const heroTitle = document.querySelector('.hero-content h1');
-        const heroSubtitle = document.querySelector('.hero-content h2');
-        const heroText = document.querySelector('.hero-content p');
-        const heroButtons = document.querySelector('.hero-buttons');
-        
         if (heroTitle) {
             heroTitle.style.fontSize = Math.min(42, width * 0.08) + 'px';
             heroTitle.style.textAlign = 'center';
-            heroTitle.style.color = 'white';
         }
         if (heroSubtitle) {
             heroSubtitle.style.fontSize = Math.min(28, width * 0.05) + 'px';
             heroSubtitle.style.textAlign = 'center';
-            heroSubtitle.style.color = '#00ffff';
         }
         if (heroText) {
             heroText.style.fontSize = Math.min(18, width * 0.03) + 'px';
             heroText.style.textAlign = 'center';
-            heroText.style.color = '#e0e0e0';
         }
         if (heroButtons) {
             heroButtons.style.justifyContent = 'center';
@@ -1099,33 +1156,26 @@ function setHeroHeight() {
     
     // Desktop-Bereich (ab 993px und Querformat)
     else if (width > 992 && window.innerHeight < window.innerWidth) {
-        // Dataset zurücksetzen
-        const heroContainer = document.querySelector('.hero .container');
+        // Desktop spezifisch
+        hero.style.backgroundColor = '#0f2a4a';
+        hero.style.backgroundImage = '';
+        
+        // Container für Desktop
         if (heroContainer) {
-            delete heroContainer.dataset.positioned;
-            heroContainer.style.marginTop = '';
-            heroContainer.style.position = '';
-            heroContainer.style.zIndex = '';
+            heroContainer.style.position = 'relative';
+            heroContainer.style.zIndex = '3';
             heroContainer.style.display = 'flex';
             heroContainer.style.flexDirection = 'row';
             heroContainer.style.alignItems = 'center';
             heroContainer.style.justifyContent = 'space-between';
             heroContainer.style.textAlign = 'left';
-            heroContainer.style.width = '';
-            heroContainer.style.maxWidth = '';
-            heroContainer.style.marginLeft = '';
-            heroContainer.style.marginRight = '';
+            heroContainer.style.width = '90%';
+            heroContainer.style.maxWidth = '1200px';
+            heroContainer.style.margin = '0 auto';
+            heroContainer.style.transform = '';
         }
         
-        // Blauen Hintergrund wiederherstellen (für Desktop)
-        hero.style.backgroundColor = '#0f2a4a';
-        hero.style.backgroundImage = '';
-        hero.style.overflow = 'hidden';
-        hero.style.display = 'flex';
-        hero.style.alignItems = 'center';
-        hero.style.justifyContent = 'center';
-        
-        // Gehirn-Bild zurücksetzen auf Original-Position
+        // Gehirn-Bild für Desktop
         const brainImage = document.querySelector('.hero-brain');
         if (brainImage) {
             brainImage.style.position = 'absolute';
@@ -1137,10 +1187,10 @@ function setHeroHeight() {
             brainImage.style.objectFit = 'cover';
             brainImage.style.opacity = '0.3';
             brainImage.style.pointerEvents = 'none';
+            brainImage.style.zIndex = '1';
         }
         
-        // Profilbild dynamisch skalieren (Desktop)
-        const profileImage = document.querySelector('.profile-image');
+        // Profilbild für Desktop
         if (profileImage) {
             const newSize = Math.min(300, width * 0.4);
             profileImage.style.width = newSize + 'px';
@@ -1148,26 +1198,18 @@ function setHeroHeight() {
             profileImage.style.margin = '';
         }
         
-        // Schrift zurücksetzen
-        const heroTitle = document.querySelector('.hero-content h1');
-        const heroSubtitle = document.querySelector('.hero-content h2');
-        const heroText = document.querySelector('.hero-content p');
-        const heroButtons = document.querySelector('.hero-buttons');
-        
+        // Schrift für Desktop
         if (heroTitle) {
             heroTitle.style.fontSize = '';
             heroTitle.style.textAlign = 'left';
-            heroTitle.style.color = 'white';
         }
         if (heroSubtitle) {
             heroSubtitle.style.fontSize = '';
             heroSubtitle.style.textAlign = 'left';
-            heroSubtitle.style.color = '#00ffff';
         }
         if (heroText) {
             heroText.style.fontSize = '';
             heroText.style.textAlign = 'left';
-            heroText.style.color = '#e0e0e0';
         }
         if (heroButtons) {
             heroButtons.style.justifyContent = 'flex-start';
@@ -1190,78 +1232,66 @@ function setHeroHeight() {
     
     // Smartphone-Bereich (unter 769px)
     else {
-        // Dataset zurücksetzen
-        const heroContainer = document.querySelector('.hero .container');
-        if (heroContainer) {
-            delete heroContainer.dataset.positioned;
-            heroContainer.style.marginTop = '';
-            heroContainer.style.position = '';
-            heroContainer.style.zIndex = '';
-            heroContainer.style.display = '';
-            heroContainer.style.flexDirection = '';
-            heroContainer.style.alignItems = '';
-            heroContainer.style.justifyContent = '';
-            heroContainer.style.textAlign = '';
-            heroContainer.style.width = '';
-            heroContainer.style.maxWidth = '';
-            heroContainer.style.marginLeft = '';
-            heroContainer.style.marginRight = '';
-        }
-        
+        // Smartphone spezifisch - alles zurücksetzen auf Grund-Styles
         hero.style.minHeight = '';
         hero.style.backgroundColor = '';
         hero.style.backgroundImage = '';
-        hero.style.overflow = '';
-        hero.style.display = '';
-        hero.style.alignItems = '';
-        hero.style.justifyContent = '';
         
-        // Bild zurücksetzen auf CSS-Werte
-        const profileImage = document.querySelector('.profile-image');
-        if (profileImage) {
-            profileImage.style.width = '';
-            profileImage.style.height = '';
-            profileImage.style.margin = '';
+        if (heroContainer) {
+            heroContainer.style.position = 'relative';
+            heroContainer.style.zIndex = '3';
+            heroContainer.style.display = 'flex';
+            heroContainer.style.flexDirection = 'column';
+            heroContainer.style.alignItems = 'center';
+            heroContainer.style.justifyContent = 'center';
+            heroContainer.style.textAlign = 'center';
+            heroContainer.style.width = '90%';
+            heroContainer.style.maxWidth = '600px';
+            heroContainer.style.margin = '0 auto';
+            heroContainer.style.transform = '';
         }
         
-        // Gehirn-Bild zurücksetzen
+        // Gehirn-Bild zurücksetzen oder ausblenden
         const brainImage = document.querySelector('.hero-brain');
         if (brainImage) {
-            brainImage.style.position = '';
-            brainImage.style.top = '';
-            brainImage.style.left = '';
-            brainImage.style.transform = '';
-            brainImage.style.width = '';
-            brainImage.style.height = '';
-            brainImage.style.objectFit = '';
-            brainImage.style.opacity = '0.3';
-            brainImage.style.pointerEvents = '';
+            brainImage.style.display = 'none';
+        }
+        
+        // Profilbild zurücksetzen
+        if (profileImage) {
+            profileImage.style.width = '160px';
+            profileImage.style.height = '160px';
+            profileImage.style.margin = '0 auto';
         }
         
         // Schrift zurücksetzen
-        const heroTitle = document.querySelector('.hero-content h1');
-        const heroSubtitle = document.querySelector('.hero-content h2');
-        const heroText = document.querySelector('.hero-content p');
-        const heroButtons = document.querySelector('.hero-buttons');
-        
         if (heroTitle) {
-            heroTitle.style.fontSize = '';
-            heroTitle.style.textAlign = '';
-            heroTitle.style.color = '';
+            heroTitle.style.fontSize = '2.2rem';
+            heroTitle.style.textAlign = 'center';
         }
         if (heroSubtitle) {
-            heroSubtitle.style.fontSize = '';
-            heroSubtitle.style.textAlign = '';
-            heroSubtitle.style.color = '';
+            heroSubtitle.style.fontSize = '1.3rem';
+            heroSubtitle.style.textAlign = 'center';
         }
         if (heroText) {
-            heroText.style.fontSize = '';
-            heroText.style.textAlign = '';
-            heroText.style.color = '';
+            heroText.style.fontSize = '1rem';
+            heroText.style.textAlign = 'center';
         }
         if (heroButtons) {
-            heroButtons.style.justifyContent = '';
+            heroButtons.style.justifyContent = 'center';
+            heroButtons.style.flexDirection = 'column';
+            heroButtons.style.alignItems = 'center';
+            heroButtons.style.gap = '12px';
         }
+        
+        // Buttons für Smartphone anpassen
+        btns.forEach(btn => {
+            btn.style.minWidth = '200px';
+            btn.style.padding = '10px 20px';
+            btn.style.fontSize = '1rem';
+        });
+        
+        hero.style.minHeight = '';
     }
 }
 
@@ -1274,6 +1304,10 @@ window.addEventListener('resize', function() {
 
 window.addEventListener('load', setHeroHeight);
 </script>
+
+
+
+
 
 
 
