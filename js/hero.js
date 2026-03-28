@@ -187,89 +187,145 @@ function setHeroResponsiveStyles() {
     }
     
     // Desktop-Bereich (ab 993px und Querformat)
-    else if (width > 992 && window.innerHeight < window.innerWidth) {
-        // Desktop spezifisch
-        hero.style.backgroundColor = '#0f2a4a';
-        hero.style.backgroundImage = '';
-        
-        // Container für Desktop
-        if (heroContainer) {
-            heroContainer.style.position = 'relative';
-            heroContainer.style.zIndex = '3';
-            heroContainer.style.display = 'flex';
-            heroContainer.style.flexDirection = 'row';
-            heroContainer.style.alignItems = 'center';
-            heroContainer.style.justifyContent = 'space-between';
-            heroContainer.style.textAlign = 'left';
-            heroContainer.style.width = '90%';
-            heroContainer.style.maxWidth = '1200px';
-            heroContainer.style.margin = '0 auto';
-            heroContainer.style.transform = '';
-        }
-        
-        // Gehirn-Bild für Desktop
-        const brainImage = document.querySelector('.hero-brain');
-        if (brainImage) {
-            brainImage.style.position = 'absolute';
-            brainImage.style.top = '-100px';
-            brainImage.style.left = '-40%';
-            brainImage.style.transform = 'rotate(-90deg)';
-            brainImage.style.width = 'auto';
-            brainImage.style.height = '150%';
-            brainImage.style.objectFit = 'cover';
-            brainImage.style.opacity = '0.3';
-            brainImage.style.pointerEvents = 'none';
-            brainImage.style.zIndex = '1';
-            brainImage.style.display = 'block';
-        }
-        
-        // Profilbild für Desktop
-        if (profileImage) {
-            const newSize = Math.min(300, width * 0.4);
-            profileImage.style.width = newSize + 'px';
-            profileImage.style.height = newSize + 'px';
-            profileImage.style.margin = '';
-        }
-        
-        // Schrift für Desktop
-        if (heroTitle) {
-            heroTitle.style.fontSize = '';
-            heroTitle.style.textAlign = 'left';
-        }
-        if (heroSubtitle) {
-            heroSubtitle.style.fontSize = '';
-            heroSubtitle.style.textAlign = 'left';
-        }
-        if (heroText) {
-            heroText.style.fontSize = '';
-            heroText.style.textAlign = 'left';
-        }
-        if (heroButtons) {
-            heroButtons.style.justifyContent = 'flex-start';
-            heroButtons.style.flexDirection = 'row';
-        }
-        
-        // Buttons für Desktop
-        btns.forEach(btn => {
-            btn.style.minWidth = '180px';
-            btn.style.padding = '12px 30px';
-            btn.style.fontSize = '1.1rem';
-        });
-        
-        // Hero-Höhe anpassen
-        const heroContent = document.querySelector('.hero-content');
-        const heroImageElem = document.querySelector('.hero-image');
-        const contentHeight = heroContent ? heroContent.offsetHeight : 0;
-        const imageHeight = heroImageElem ? heroImageElem.offsetHeight : 0;
-        
-        let buffer = 100;
-        if (isVHBuggy) {
-            buffer = 80;
-        }
-        const totalContentHeight = contentHeight + imageHeight + buffer;
-        
-        hero.style.minHeight = Math.max(adjustedWindowHeight, totalContentHeight) + 'px';
+        else if (width > 992 && window.innerHeight < window.innerWidth) {
+    // Desktop spezifisch
+    hero.style.backgroundColor = '#0f2a4a';
+    hero.style.backgroundImage = '';
+    hero.style.overflow = 'hidden';
+    hero.style.display = 'flex';
+    hero.style.alignItems = 'center';
+    hero.style.justifyContent = 'center';
+    
+    // Container für Desktop
+    if (heroContainer) {
+        heroContainer.style.position = 'relative';
+        heroContainer.style.zIndex = '3';
+        heroContainer.style.display = 'flex';
+        heroContainer.style.flexDirection = 'row';
+        heroContainer.style.alignItems = 'center';
+        heroContainer.style.justifyContent = 'space-between';
+        heroContainer.style.textAlign = 'left';
+        heroContainer.style.width = '90%';
+        heroContainer.style.maxWidth = '1200px';
+        heroContainer.style.margin = '0 auto';
+        heroContainer.style.transform = '';
+        heroContainer.style.top = '';
+        heroContainer.style.left = '';
+        heroContainer.style.marginTop = '';
+        heroContainer.style.marginBottom = '';
     }
+    
+    // Gehirn-Bild für Desktop
+    const brainImage = document.querySelector('.hero-brain');
+    if (brainImage) {
+        brainImage.style.position = 'absolute';
+        brainImage.style.top = '-100px';
+        brainImage.style.left = '-40%';
+        brainImage.style.transform = 'rotate(-90deg)';
+        brainImage.style.width = 'auto';
+        brainImage.style.height = '150%';
+        brainImage.style.objectFit = 'cover';
+        brainImage.style.opacity = '0.3';
+        brainImage.style.pointerEvents = 'none';
+        brainImage.style.zIndex = '1';
+        brainImage.style.display = 'block';
+        brainImage.style.visibility = 'visible';
+    }
+    
+    // Hero-Content sichtbar machen (falls vom Tablet überschrieben)
+    const heroContentElem = document.querySelector('.hero-content');
+    if (heroContentElem) {
+        heroContentElem.style.opacity = '1';
+        heroContentElem.style.visibility = 'visible';
+        heroContentElem.style.position = 'relative';
+        heroContentElem.style.zIndex = '3';
+        heroContentElem.style.maxWidth = '600px';
+        heroContentElem.style.marginTop = '-40px';
+    }
+    
+    // Hero-Image sichtbar machen
+    const heroImageElem = document.querySelector('.hero-image');
+    if (heroImageElem) {
+        heroImageElem.style.opacity = '1';
+        heroImageElem.style.visibility = 'visible';
+        heroImageElem.style.position = 'relative';
+        heroImageElem.style.zIndex = '3';
+    }
+    
+    // Profilbild für Desktop
+    if (profileImage) {
+        const newSize = Math.min(300, width * 0.4);
+        profileImage.style.width = newSize + 'px';
+        profileImage.style.height = newSize + 'px';
+        profileImage.style.margin = '';
+        profileImage.style.marginTop = '-50px';
+        profileImage.style.display = 'block';
+        profileImage.style.visibility = 'visible';
+    }
+    
+    // Schrift für Desktop
+    if (heroTitle) {
+        heroTitle.style.fontSize = '';
+        heroTitle.style.textAlign = 'left';
+        heroTitle.style.color = 'white';
+        heroTitle.style.marginBottom = '0.5rem';
+        heroTitle.style.display = 'block';
+        heroTitle.style.visibility = 'visible';
+    }
+    if (heroSubtitle) {
+        heroSubtitle.style.fontSize = '';
+        heroSubtitle.style.textAlign = 'left';
+        heroSubtitle.style.color = '#00ffff';
+        heroSubtitle.style.marginBottom = '1.5rem';
+        heroSubtitle.style.display = 'block';
+        heroSubtitle.style.visibility = 'visible';
+    }
+    if (heroText) {
+        heroText.style.fontSize = '';
+        heroText.style.textAlign = 'left';
+        heroText.style.color = '#e0e0e0';
+        heroText.style.marginBottom = '2rem';
+        heroText.style.display = 'block';
+        heroText.style.visibility = 'visible';
+    }
+    if (heroButtons) {
+        heroButtons.style.justifyContent = 'flex-start';
+        heroButtons.style.flexDirection = 'row';
+        heroButtons.style.marginTop = '40px';
+        heroButtons.style.display = 'flex';
+        heroButtons.style.gap = '20px';
+        heroButtons.style.visibility = 'visible';
+    }
+    
+    // Buttons für Desktop
+    btns.forEach(btn => {
+        btn.style.minWidth = '180px';
+        btn.style.padding = '12px 30px';
+        btn.style.fontSize = '1.1rem';
+        btn.style.display = 'inline-block';
+        btn.style.visibility = 'visible';
+        btn.style.background = 'transparent';
+        btn.style.color = 'white';
+        btn.style.border = '2px solid #00ffff';
+        btn.style.boxShadow = '0 0 10px rgba(0, 255, 255, 0.3)';
+    });
+    
+    // Hero-Höhe anpassen
+    const heroContent = document.querySelector('.hero-content');
+    const heroImageElem2 = document.querySelector('.hero-image');
+    const contentHeight = heroContent ? heroContent.offsetHeight : 0;
+    const imageHeight = heroImageElem2 ? heroImageElem2.offsetHeight : 0;
+    
+    let buffer = 100;
+    if (isVHBuggy) {
+        buffer = 80;
+    }
+    const totalContentHeight = contentHeight + imageHeight + buffer;
+    
+    hero.style.minHeight = Math.max(adjustedWindowHeight, totalContentHeight) + 'px';
+}
+
+
     
     // Smartphone-Bereich (unter 769px)
     else {
