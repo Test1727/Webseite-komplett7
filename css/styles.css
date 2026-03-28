@@ -267,11 +267,12 @@ section {
    ======================================== */
 /* Ladezeit */
 .hero {
+   .hero {
     min-height: 100vh;
     height: auto;
-    display: flex;
-    align-items: center;
+    visibility: hidden; /* Wird von JS sichtbar gemacht */
 }
+
 
 @keyframes glowPulse {
     0% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.2); }
