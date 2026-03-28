@@ -1,13 +1,5 @@
 // hero.js - komplett korrigiert
 
-alert('hero.js lädt!');
-
-const testDiv = document.createElement('div');
-testDiv.textContent = 'Hero-Skript läuft';
-testDiv.style.cssText = 'position:fixed; top:0; left:0; background:red; color:white; padding:5px; z-index:9999';
-document.body.appendChild(testDiv);
-setTimeout(() => testDiv.remove(), 3000);
-
 // ========== GRUNDLEGENDE HERO-STYLES (nur einmal beim Laden) ==========
 function setHeroBaseStyles() {
     const hero = document.querySelector('.hero');
