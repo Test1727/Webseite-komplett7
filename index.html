@@ -986,6 +986,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+
 <!-- Damit wird auf Tablet und Desktop die erste Seite immer korrekt angezeigt egal wie die Fenstergröße ist -->
 <script>
 function setHeroHeight() {
@@ -999,131 +1000,125 @@ function setHeroHeight() {
     const isVHBuggy = window.innerHeight !== document.documentElement.clientHeight;
     const adjustedWindowHeight = isVHBuggy ? document.documentElement.clientHeight : windowHeight;
 
-
-
-if (width >= 769 && width <= 992 || (width > 992 && window.innerHeight > window.innerWidth)) {
-    // Hero komplett über JS steuern
-    hero.style.backgroundColor = 'transparent';
-    hero.style.backgroundImage = 'none';
-    hero.style.overflow = 'hidden';
-    hero.style.display = 'flex';
-    hero.style.alignItems = 'center';
-    hero.style.justifyContent = 'center';
-    
-    // Container zentrieren
-    const heroContainer = document.querySelector('.hero .container');
-    if (heroContainer) {
-        heroContainer.style.position = 'relative';
-        heroContainer.style.zIndex = '2';
-        heroContainer.style.display = 'flex';
-        heroContainer.style.flexDirection = 'column';
-        heroContainer.style.alignItems = 'center';
-        heroContainer.style.justifyContent = 'center';
-        heroContainer.style.textAlign = 'center';
-    }
-    
-    // Gehirn-Bild zentriert positionieren
-    const brainImage = document.querySelector('.hero-brain');
-    if (brainImage) {
-        brainImage.style.position = 'absolute';
-        brainImage.style.top = '50%';
-        brainImage.style.left = '50%';
-        brainImage.style.transform = 'translate(-50%, -50%) rotate(-90deg)';
-        brainImage.style.width = 'auto';
-        brainImage.style.height = '150%';
-        brainImage.style.objectFit = 'cover';
-        brainImage.style.opacity = '0.3';
-        brainImage.style.pointerEvents = 'none';
-    }
-    
-    // Profilbild skalieren
-    const profileImage = document.querySelector('.profile-image');
-    if (profileImage) {
-        const newSize = Math.min(220, width * 0.4);
-        profileImage.style.width = newSize + 'px';
-        profileImage.style.height = newSize + 'px';
-        profileImage.style.margin = '0 auto';
-    }
-    
-    // Schrift skalieren und zentrieren
-    const heroTitle = document.querySelector('.hero-content h1');
-    const heroSubtitle = document.querySelector('.hero-content h2');
-    const heroText = document.querySelector('.hero-content p');
-    const heroButtons = document.querySelector('.hero-buttons');
-    
-    if (heroTitle) {
-        heroTitle.style.fontSize = Math.min(42, width * 0.08) + 'px';
-        heroTitle.style.textAlign = 'center';
-        heroTitle.style.color = 'white';
-    }
-    if (heroSubtitle) {
-        heroSubtitle.style.fontSize = Math.min(28, width * 0.05) + 'px';
-        heroSubtitle.style.textAlign = 'center';
-        heroSubtitle.style.color = '#00ffff';
-    }
-    if (heroText) {
-        heroText.style.fontSize = Math.min(18, width * 0.03) + 'px';
-        heroText.style.textAlign = 'center';
-        heroText.style.color = '#e0e0e0';
-    }
-    if (heroButtons) {
-        heroButtons.style.justifyContent = 'center';
-    }
-    
-    // Hero-Höhe anpassen
-    const heroContent = document.querySelector('.hero-content');
-    const heroImage = document.querySelector('.hero-image');
-    const contentHeight = heroContent ? heroContent.offsetHeight : 0;
-    const imageHeight = heroImage ? heroImage.offsetHeight : 0;
-    
-    let buffer = 250;
-    if (isVHBuggy) {
-        buffer = 230;
-    }
-    const totalContentHeight = contentHeight + imageHeight + buffer;
-    
-    hero.style.minHeight = Math.max(adjustedWindowHeight, totalContentHeight) + 'px';
-}
-    
-
-
-
-
-
-
-
-    
-    
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
+    // alle Tablets (769px - 992px) Hoch- und Querformat und alle Geräte mit Breite >992 im Hochformat-große Tablets!
+    if (width >= 769 && width <= 992 || (width > 992 && window.innerHeight > window.innerWidth)) {
+        // Hero komplett über JS steuern
+        hero.style.backgroundColor = 'transparent';
+        hero.style.backgroundImage = 'none';
+        hero.style.overflow = 'hidden';
+        hero.style.display = 'flex';
+        hero.style.alignItems = 'center';
+        hero.style.justifyContent = 'center';
         
+        // Container zentrieren
+        const heroContainer = document.querySelector('.hero .container');
+        if (heroContainer) {
+            heroContainer.style.position = 'relative';
+            heroContainer.style.zIndex = '2';
+            heroContainer.style.display = 'flex';
+            heroContainer.style.flexDirection = 'column';
+            heroContainer.style.alignItems = 'center';
+            heroContainer.style.justifyContent = 'center';
+            heroContainer.style.textAlign = 'center';
+        }
+        
+        // Gehirn-Bild zentriert positionieren
+        const brainImage = document.querySelector('.hero-brain');
+        if (brainImage) {
+            brainImage.style.position = 'absolute';
+            brainImage.style.top = '50%';
+            brainImage.style.left = '50%';
+            brainImage.style.transform = 'translate(-50%, -50%) rotate(-90deg)';
+            brainImage.style.width = 'auto';
+            brainImage.style.height = '150%';
+            brainImage.style.objectFit = 'cover';
+            brainImage.style.opacity = '0.3';
+            brainImage.style.pointerEvents = 'none';
+        }
+        
+        // Profilbild skalieren
+        const profileImage = document.querySelector('.profile-image');
+        if (profileImage) {
+            const newSize = Math.min(220, width * 0.4);
+            profileImage.style.width = newSize + 'px';
+            profileImage.style.height = newSize + 'px';
+            profileImage.style.margin = '0 auto';
+        }
+        
+        // Schrift skalieren und zentrieren
+        const heroTitle = document.querySelector('.hero-content h1');
+        const heroSubtitle = document.querySelector('.hero-content h2');
+        const heroText = document.querySelector('.hero-content p');
+        const heroButtons = document.querySelector('.hero-buttons');
+        
+        if (heroTitle) {
+            heroTitle.style.fontSize = Math.min(42, width * 0.08) + 'px';
+            heroTitle.style.textAlign = 'center';
+            heroTitle.style.color = 'white';
+        }
+        if (heroSubtitle) {
+            heroSubtitle.style.fontSize = Math.min(28, width * 0.05) + 'px';
+            heroSubtitle.style.textAlign = 'center';
+            heroSubtitle.style.color = '#00ffff';
+        }
+        if (heroText) {
+            heroText.style.fontSize = Math.min(18, width * 0.03) + 'px';
+            heroText.style.textAlign = 'center';
+            heroText.style.color = '#e0e0e0';
+        }
+        if (heroButtons) {
+            heroButtons.style.justifyContent = 'center';
+        }
+        
+        // Hero-Höhe anpassen
+        const heroContent = document.querySelector('.hero-content');
+        const heroImageElem = document.querySelector('.hero-image');
+        const contentHeight = heroContent ? heroContent.offsetHeight : 0;
+        const imageHeight = heroImageElem ? heroImageElem.offsetHeight : 0;
+        
+        let buffer = 250;
+        if (isVHBuggy) {
+            buffer = 230;
+        }
+        const totalContentHeight = contentHeight + imageHeight + buffer;
+        
+        hero.style.minHeight = Math.max(adjustedWindowHeight, totalContentHeight) + 'px';
+    }
+    
     // Desktop-Bereich (ab 993px und Querformat)
     else if (width > 992 && window.innerHeight < window.innerWidth) {
         // Blauen Hintergrund wiederherstellen (für Desktop)
         hero.style.backgroundColor = '#0f2a4a';
+        hero.style.backgroundImage = '';
+        hero.style.overflow = 'hidden';
+        hero.style.display = 'flex';
+        hero.style.alignItems = 'center';
+        hero.style.justifyContent = 'center';
         
-        // Gehirn-Bild zurücksetzen
+        // Container zurücksetzen
+        const heroContainer = document.querySelector('.hero .container');
+        if (heroContainer) {
+            heroContainer.style.position = '';
+            heroContainer.style.zIndex = '';
+            heroContainer.style.display = 'flex';
+            heroContainer.style.flexDirection = 'row';
+            heroContainer.style.alignItems = 'center';
+            heroContainer.style.justifyContent = 'space-between';
+            heroContainer.style.textAlign = 'left';
+        }
+        
+        // Gehirn-Bild zurücksetzen auf Original-Position
         const brainImage = document.querySelector('.hero-brain');
         if (brainImage) {
-            brainImage.style.position = '';
-            brainImage.style.top = '';
-            brainImage.style.left = '';
-            brainImage.style.width = '';
-            brainImage.style.height = '';
-            brainImage.style.objectFit = '';
+            brainImage.style.position = 'absolute';
+            brainImage.style.top = '-100px';
+            brainImage.style.left = '-40%';
+            brainImage.style.transform = 'rotate(-90deg)';
+            brainImage.style.width = 'auto';
+            brainImage.style.height = '150%';
+            brainImage.style.objectFit = 'cover';
             brainImage.style.opacity = '0.3';
+            brainImage.style.pointerEvents = 'none';
         }
         
         // Profilbild dynamisch skalieren (Desktop)
@@ -1132,15 +1127,40 @@ if (width >= 769 && width <= 992 || (width > 992 && window.innerHeight > window.
             const newSize = Math.min(300, width * 0.4);
             profileImage.style.width = newSize + 'px';
             profileImage.style.height = newSize + 'px';
+            profileImage.style.margin = '';
         }
         
-        // Hero-Höhe auch auf Desktop anpassen
-        const heroContent = document.querySelector('.hero-content');
-        const heroImage = document.querySelector('.hero-image');
-        const contentHeight = heroContent ? heroContent.offsetHeight : 0;
-        const imageHeight = heroImage ? heroImage.offsetHeight : 0;
+        // Schrift zurücksetzen
+        const heroTitle = document.querySelector('.hero-content h1');
+        const heroSubtitle = document.querySelector('.hero-content h2');
+        const heroText = document.querySelector('.hero-content p');
+        const heroButtons = document.querySelector('.hero-buttons');
         
-        // Puffer je nach Browser anpassen
+        if (heroTitle) {
+            heroTitle.style.fontSize = '';
+            heroTitle.style.textAlign = 'left';
+            heroTitle.style.color = 'white';
+        }
+        if (heroSubtitle) {
+            heroSubtitle.style.fontSize = '';
+            heroSubtitle.style.textAlign = 'left';
+            heroSubtitle.style.color = '#00ffff';
+        }
+        if (heroText) {
+            heroText.style.fontSize = '';
+            heroText.style.textAlign = 'left';
+            heroText.style.color = '#e0e0e0';
+        }
+        if (heroButtons) {
+            heroButtons.style.justifyContent = 'flex-start';
+        }
+        
+        // Hero-Höhe anpassen
+        const heroContent = document.querySelector('.hero-content');
+        const heroImageElem = document.querySelector('.hero-image');
+        const contentHeight = heroContent ? heroContent.offsetHeight : 0;
+        const imageHeight = heroImageElem ? heroImageElem.offsetHeight : 0;
+        
         let buffer = 100;
         if (isVHBuggy) {
             buffer = 80;
@@ -1154,12 +1174,30 @@ if (width >= 769 && width <= 992 || (width > 992 && window.innerHeight > window.
     else {
         hero.style.minHeight = '';
         hero.style.backgroundColor = '';
+        hero.style.backgroundImage = '';
+        hero.style.overflow = '';
+        hero.style.display = '';
+        hero.style.alignItems = '';
+        hero.style.justifyContent = '';
+        
+        // Container zurücksetzen
+        const heroContainer = document.querySelector('.hero .container');
+        if (heroContainer) {
+            heroContainer.style.position = '';
+            heroContainer.style.zIndex = '';
+            heroContainer.style.display = '';
+            heroContainer.style.flexDirection = '';
+            heroContainer.style.alignItems = '';
+            heroContainer.style.justifyContent = '';
+            heroContainer.style.textAlign = '';
+        }
         
         // Bild zurücksetzen auf CSS-Werte
         const profileImage = document.querySelector('.profile-image');
         if (profileImage) {
             profileImage.style.width = '';
             profileImage.style.height = '';
+            profileImage.style.margin = '';
         }
         
         // Gehirn-Bild zurücksetzen
@@ -1168,10 +1206,37 @@ if (width >= 769 && width <= 992 || (width > 992 && window.innerHeight > window.
             brainImage.style.position = '';
             brainImage.style.top = '';
             brainImage.style.left = '';
+            brainImage.style.transform = '';
             brainImage.style.width = '';
             brainImage.style.height = '';
             brainImage.style.objectFit = '';
             brainImage.style.opacity = '0.3';
+            brainImage.style.pointerEvents = '';
+        }
+        
+        // Schrift zurücksetzen
+        const heroTitle = document.querySelector('.hero-content h1');
+        const heroSubtitle = document.querySelector('.hero-content h2');
+        const heroText = document.querySelector('.hero-content p');
+        const heroButtons = document.querySelector('.hero-buttons');
+        
+        if (heroTitle) {
+            heroTitle.style.fontSize = '';
+            heroTitle.style.textAlign = '';
+            heroTitle.style.color = '';
+        }
+        if (heroSubtitle) {
+            heroSubtitle.style.fontSize = '';
+            heroSubtitle.style.textAlign = '';
+            heroSubtitle.style.color = '';
+        }
+        if (heroText) {
+            heroText.style.fontSize = '';
+            heroText.style.textAlign = '';
+            heroText.style.color = '';
+        }
+        if (heroButtons) {
+            heroButtons.style.justifyContent = '';
         }
     }
 }
@@ -1186,6 +1251,9 @@ window.addEventListener('resize', function() {
 window.addEventListener('load', setHeroHeight);
 setHeroHeight();
 </script>
+
+    
+
 
 
     
