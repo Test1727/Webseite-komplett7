@@ -270,7 +270,6 @@ section {
    .hero {
     min-height: 100vh;
     height: auto;
-    visibility: hidden; /* Wird von JS sichtbar gemacht */
 }
 
 
