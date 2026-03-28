@@ -6,7 +6,6 @@
     /* === TYPOGRAPHIE - FLUID === */
 
       body {
-        background-color: #112c4b !important;
         font-size: 15px;
         margin: 0 !important;
         padding: 0 !important;
@@ -84,81 +83,7 @@
 }
     
     /* === HERO SECTION === */
-       .hero {
-        background-color: #112c4b !important;
-        width: 100% !important;
-        min-height: auto;
-        padding: 80px 0 60px;   
-        }
-    
 
-      .hero .container {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 0 20px !important;
-        margin: 0 auto !important;
-        flex-direction: column;
-        text-align: center;
-        gap: 40px;
-    }
-
-    
-    .hero-content {
-        max-width: 100%;
-        margin-top: 0;
-       order: 2;
-        text-align: center;
-    }
-    
-    .hero-content h1 {
-        font-size: clamp(2.2rem, 5vw, 2.8rem);
-    }
-    
-    .hero-content h2 {
-        font-size: clamp(1.3rem, 3vw, 1.6rem);
-    }
-    
-    .hero-content p {
-        font-size: 1rem;
-        max-width: 600px;
-        margin: 0 auto 1.5rem auto;
-    }
-
-
-
-    .hero-buttons {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    width: 100%;
-}
-
-.hero-buttons .btn {
-    flex: 1;
-    padding: 10px 20px;
-    font-size: 1rem;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    white-space: nowrap;
-}  
-    
-    .hero-image {
-        margin-top: 0;
-        order: 1;
-    }
-    
-    .profile-image {
-        width: clamp(180px, 25vw, 220px);
-        height: clamp(180px, 25vw, 220px);
-        margin-top: 0;
-    }
-    
-    .hero-brain {
-        opacity: 0.2;
-        left: -50%;
-    }
     
     /* === ABOUT SECTION === */
     .about-content {
