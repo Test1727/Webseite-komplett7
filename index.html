@@ -985,6 +985,150 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 
+
+<!-- Damit wird auf Tablet und Desktop die erste Seite immer korrekt angezeigt egal wie die Fenstergröße ist -->
+<script>
+function setHeroHeight() {
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
+    
+    const width = window.innerWidth;
+    const windowHeight = window.innerHeight;
+    
+    // Browser-spezifische Anpassung für vh-Berechnung
+    const isVHBuggy = window.innerHeight !== document.documentElement.clientHeight;
+    const adjustedWindowHeight = isVHBuggy ? document.documentElement.clientHeight : windowHeight;
+    
+    // Tablet-Bereich (769px - 992px) und alle Geräte mit Breite >992 das Hochformat hat!
+    if (width >= 769 && width <= 992 || (width > 992 && window.innerHeight > window.innerWidth)) {
+        // Blauen Hintergrund entfernen und Gehirn-Bild anpassen
+        hero.style.backgroundColor = 'transparent';
+        const brainImage = document.querySelector('.hero-brain');
+        if (brainImage) {
+            brainImage.style.position = 'absolute';
+            brainImage.style.top = '0';
+            brainImage.style.left = '0';
+            brainImage.style.width = '100%';
+            brainImage.style.height = '100%';
+            brainImage.style.objectFit = 'cover';
+            brainImage.style.opacity = '0.3';
+        }
+        
+        // Profilbild dynamisch skalieren (Tablet)
+        const profileImage = document.querySelector('.profile-image');
+        if (profileImage) {
+            const newSize = Math.min(220, width * 0.4);
+            profileImage.style.width = newSize + 'px';
+            profileImage.style.height = newSize + 'px';
+        }
+        
+        // Hero-Höhe anpassen
+        const heroContent = document.querySelector('.hero-content');
+        const heroImage = document.querySelector('.hero-image');
+        const contentHeight = heroContent ? heroContent.offsetHeight : 0;
+        const imageHeight = heroImage ? heroImage.offsetHeight : 0;
+        
+        // Puffer je nach Browser anpassen (Chrome/Edge brauchen weniger)
+        let buffer = 250;
+        if (isVHBuggy) {
+            buffer = 230; // Für Chrome, Edge
+        }
+        const totalContentHeight = contentHeight + imageHeight + buffer;
+        
+        hero.style.minHeight = Math.max(adjustedWindowHeight, totalContentHeight) + 'px';
+    }
+    
+    // Desktop-Bereich (ab 993px und Querformat)
+    else if (width > 992 && window.innerHeight < window.innerWidth) {
+        // Blauen Hintergrund wiederherstellen (für Desktop)
+        hero.style.backgroundColor = '#0f2a4a';
+        
+        // Gehirn-Bild zurücksetzen
+        const brainImage = document.querySelector('.hero-brain');
+        if (brainImage) {
+            brainImage.style.position = '';
+            brainImage.style.top = '';
+            brainImage.style.left = '';
+            brainImage.style.width = '';
+            brainImage.style.height = '';
+            brainImage.style.objectFit = '';
+            brainImage.style.opacity = '0.3';
+        }
+        
+        // Profilbild dynamisch skalieren (Desktop)
+        const profileImage = document.querySelector('.profile-image');
+        if (profileImage) {
+            const newSize = Math.min(300, width * 0.4);
+            profileImage.style.width = newSize + 'px';
+            profileImage.style.height = newSize + 'px';
+        }
+        
+        // Hero-Höhe auch auf Desktop anpassen
+        const heroContent = document.querySelector('.hero-content');
+        const heroImage = document.querySelector('.hero-image');
+        const contentHeight = heroContent ? heroContent.offsetHeight : 0;
+        const imageHeight = heroImage ? heroImage.offsetHeight : 0;
+        
+        // Puffer je nach Browser anpassen
+        let buffer = 100;
+        if (isVHBuggy) {
+            buffer = 80;
+        }
+        const totalContentHeight = contentHeight + imageHeight + buffer;
+        
+        hero.style.minHeight = Math.max(adjustedWindowHeight, totalContentHeight) + 'px';
+    }
+    
+    // Smartphone-Bereich (unter 769px)
+    else {
+        hero.style.minHeight = '';
+        hero.style.backgroundColor = '';
+        
+        // Bild zurücksetzen auf CSS-Werte
+        const profileImage = document.querySelector('.profile-image');
+        if (profileImage) {
+            profileImage.style.width = '';
+            profileImage.style.height = '';
+        }
+        
+        // Gehirn-Bild zurücksetzen
+        const brainImage = document.querySelector('.hero-brain');
+        if (brainImage) {
+            brainImage.style.position = '';
+            brainImage.style.top = '';
+            brainImage.style.left = '';
+            brainImage.style.width = '';
+            brainImage.style.height = '';
+            brainImage.style.objectFit = '';
+            brainImage.style.opacity = '0.3';
+        }
+    }
+}
+
+// Bei Resize mit Debounce für bessere Performance
+let resizeTimeout;
+window.addEventListener('resize', function() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(setHeroHeight, 150);
+});
+
+window.addEventListener('load', setHeroHeight);
+setHeroHeight();
+</script>
+
+
+    
+
+
+
+
+
+
+
+
+
+    
+
     
     
 
@@ -1007,99 +1151,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     </script>
     
-
-    <!-- Damit wird auf Tablet und Desktop die erste Seite immer korrekt angezeigt egal wie die Fenstergröße ist -->
-<script>
-function setHeroHeight() {
-    const hero = document.querySelector('.hero');
-    if (!hero) return;
-    
-    const width = window.innerWidth;
-    const windowHeight = window.innerHeight;
-    
-    // Browser-spezifische Anpassung für vh-Berechnung
-    const isVHBuggy = window.innerHeight !== document.documentElement.clientHeight;
-    const adjustedWindowHeight = isVHBuggy ? document.documentElement.clientHeight : windowHeight;
-
-
-    
-
-
-    // Tablet-Bereich (769px - 992px) und alle Geräte mit Breite >992 das Hochformat hat!
-if (width >= 769 && width <= 992  || (width > 992 && window.innerHeight > window.innerWidth)) {
-    // Blauen Hintergrund entfernen und Gehirn-Bild anpassen
-    hero.style.backgroundColor = 'transparent';
-    const brainImage = document.querySelector('.hero-brain');
-    if (brainImage) {
-        brainImage.style.position = 'absolute';
-        brainImage.style.top = '0';
-        brainImage.style.left = '0';
-        brainImage.style.width = '100%';
-        brainImage.style.height = '100%';
-        brainImage.style.objectFit = 'cover';
-        brainImage.style.opacity = '0.3';
-    }
-    
-    // Profilbild dynamisch skalieren (Tablet)
-    const profileImage = document.querySelector('.profile-image');
-    if (profileImage) {
-        const newSize = Math.min(220, width * 0.4);
-        profileImage.style.width = newSize + 'px';
-        profileImage.style.height = newSize + 'px';
-    }
-    
-    // Hero-Höhe anpassen
-    const heroContent = document.querySelector('.hero-content');
-    const heroImage = document.querySelector('.hero-image');
-    const contentHeight = heroContent ? heroContent.offsetHeight : 0;
-    const imageHeight = heroImage ? heroImage.offsetHeight : 0;
-    
-    // Puffer je nach Browser anpassen (Chrome/Edge brauchen weniger)
-    let buffer = 250;
-    if (isVHBuggy) {
-        buffer = 230; // Für Chrome, Edge
-    }
-    const totalContentHeight = contentHeight + imageHeight + buffer;
-    
-    hero.style.minHeight = Math.max(adjustedWindowHeight, totalContentHeight) + 'px';
-}
-
-
-
-
-    
- 
-
-
-
-
-
-
-
-        
-    // Smartphone-Bereich (unter 769px)
-    else {
-        hero.style.minHeight = '';
-        
-        // Bild zurücksetzen auf CSS-Werte
-        const profileImage = document.querySelector('.profile-image');
-        if (profileImage) {
-            profileImage.style.width = '';
-            profileImage.style.height = '';
-        }
-    }
-}
-
-// Bei Resize mit Debounce für bessere Performance
-let resizeTimeout;
-window.addEventListener('resize', function() {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(setHeroHeight, 150);
-});
-
-window.addEventListener('load', setHeroHeight);
-setHeroHeight();
-</script>
 
 
 
