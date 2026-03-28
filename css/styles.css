@@ -260,9 +260,51 @@ section {
 } 
 
 
+
+
 /* ========================================
-   HERO SECTION
+   HERO SECTION - NUR ANIMATIONEN & HOVER
    ======================================== */
+
+@keyframes glowPulse {
+    0% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.2); }
+    50% { box-shadow: 0 0 40px rgba(0, 255, 255, 0.5); }
+    100% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.2); }
+}
+
+/* Hover-Effekte für Buttons */
+.hero-buttons .btn-primary:hover,
+.hero-buttons .btn-secondary:hover {
+    background: #00ffff;
+    color: #112c4b;
+    border-color: #00ffff;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Transition für sanfte Übergänge */
+.hero-buttons .btn {
+    transition: all 0.3s ease;
+}
+
+/* Optional: Falls du die Pulse-Animationen behalten willst */
+@keyframes rightPulse {
+    0% { opacity: 0.7; filter: blur(0.5px); }
+    50% { opacity: 1; filter: blur(0.3px); }
+    100% { opacity: 0.7; filter: blur(0.5px); }
+}
+
+@keyframes leftPulse {
+    0% { opacity: 0.6; filter: blur(0.8px); }
+    50% { opacity: 0.9; filter: blur(0.5px); }
+    100% { opacity: 0.6; filter: blur(0.8px); }
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.5; filter: blur(0.8px); }
+    50% { opacity: 0.9; filter: blur(0.4px); }
+    100% { opacity: 0.5; filter: blur(0.8px); }
+}
 
 
 
